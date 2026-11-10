@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ export default function Contact() {
   const [selectedTimeline, setSelectedTimeline] = useState('Immediate (Within 14 Days)');
 
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [state, handleSubmit] = useForm('mqpqzkgk');
 
   const disciplinesList = [
     'Web Development',
@@ -50,15 +51,11 @@ export default function Contact() {
     );
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    // Simulate API dispatch to founder queue
-    setTimeout(() => {
-      setLoading(false);
+  useEffect(() => {
+    if (state.succeeded) {
       setSubmitted(true);
-    }, 900);
-  };
+    }
+  }, [state.succeeded]);
 
   return (
     <main className="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen text-body-text">
@@ -138,6 +135,7 @@ export default function Contact() {
                   <input
                     type="text"
                     required
+                    name="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Vikram Mehta"
@@ -152,6 +150,7 @@ export default function Contact() {
                   <input
                     type="email"
                     required
+                    name="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. vikram@enterprise.in"
@@ -165,6 +164,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="organization"
                     value={formData.organization}
                     onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                     placeholder="e.g. Apex Logix Private Ltd."
@@ -178,6 +178,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="role"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     placeholder="e.g. Founder / CTO / Head of Product"
@@ -293,6 +294,7 @@ export default function Contact() {
 
               <textarea
                 rows={4}
+                name="brief"
                 value={formData.brief}
                 onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
                 placeholder="Describe your current software baseline, manual bottleneck pain points, data systems, or required transaction throughput..."
@@ -300,14 +302,18 @@ export default function Contact() {
               ></textarea>
             </div>
 
+            <input type="hidden" name="disciplines" value={selectedDisciplines.join(', ')} />
+            <input type="hidden" name="budget" value={selectedBudget} />
+            <input type="hidden" name="timeline" value={selectedTimeline} />
+
             {/* Submit Button & Direct Channels */}
             <div className="flex flex-col gap-4">
               <button
                 type="submit"
-                disabled={loading}
+                disabled={state.submitting}
                 className="w-full py-4 rounded-full bg-primary hover:bg-primary-fixed text-on-primary font-mono text-sm font-bold uppercase tracking-wider shadow-xl active:scale-98 transition-all flex items-center justify-center gap-2"
               >
-                {loading ? (
+                {state.submitting ? (
                   <span>TRANSMITTING RFC PROTOCOL...</span>
                 ) : (
                   <>
@@ -316,6 +322,11 @@ export default function Contact() {
                   </>
                 )}
               </button>
+              <ValidationError
+                prefix="Submission failed"
+                errors={state.errors}
+                className="text-center text-sm text-red-400"
+              />
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-body-mid px-2 pt-2">
                 <div className="flex items-center gap-2">

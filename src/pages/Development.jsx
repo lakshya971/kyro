@@ -360,11 +360,11 @@ export default function Development() {
             {/* Right Side: Single Clean Deliverable Visual Preview */}
             <div className="lg:col-span-6">
               <UiPreviewFrame
-                src="/images/erp-enterprise-software.jpg"
-                alt="Custom Enterprise ERP Operational Software Preview"
-                title="Client Deliverable Preview • Multi-Entity Enterprise ERP Suite"
-                badge="Custom Software"
-                caption="Visual preview of the custom financial ledger, inventory alerts, and sales invoicing platform built for operations teams."
+                src="/images/kyro-development-hero.png"
+                alt="KYRO AI-powered business automation website design"
+                title="Client Deliverable Preview • AI-Powered Business Automation"
+                badge="Digital Systems"
+                caption="Visual preview of a high-converting, AI-powered business website engineered to automate workflows and scale operations."
                 metrics={['100% Owned IP', 'Role-Based Access', 'ACID Ledger']}
                 eager={true}
               />

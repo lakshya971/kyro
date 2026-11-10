@@ -264,11 +264,11 @@ export default function Home() {
             {/* Right Side: Single Clean Client Deliverable UI Preview */}
             <div className="lg:col-span-6">
               <UiPreviewFrame
-                src="/images/executive-summary-bi.jpg"
-                alt="KYRO Executive Command & Software System Deliverable Interface"
-                title="KYRO Deliverable Interface • Executive Performance & Systems"
+                src="/images/kyro-hero-services.png"
+                alt="KYRO digital services including web development, software development, analytics, AI automation, and enterprise solutions"
+                title="KYRO Digital Services"
                 badge="Client Preview"
-                caption="How your leadership software and telemetry look in production: unified clarity built around revenue, margins, and divisions."
+                caption="Explore KYRO's web, software, analytics, AI automation, and enterprise technology solutions."
                 metrics={['100% Owned IP', 'Zero SaaS Lock-in', 'Real-Time']}
                 eager={true}
               />
