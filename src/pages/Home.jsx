@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UiPreviewFrame from '../components/UiPreviewFrame';
 
 export default function Home() {
   // Interactive Node Mesh State
@@ -101,7 +102,9 @@ export default function Home() {
       icon: 'web',
       accentColor: 'text-sunset-orange',
       title: 'WEBSITE DEVELOPMENT',
-      desc: 'High-throughput, semantic web architectures designed for sub-second response times and SEO dominance. Engineered on lightweight micro-frameworks with optimal critical-path rendering.',
+      desc: 'High-throughput, semantic web architectures designed for sub-second response times, SEO rankings, and high-converting digital storefronts.',
+      bestFor: 'D2C brands, B2B service firms & high-growth startups losing leads on slow template sites.',
+      deliverables: 'Custom React/Edge Frontend • Sub-second Mobile Speed • Automated Lead Capture Webhooks',
       outcome: 'Core Web Vitals 99+ • Sub-200ms TTFB Global Cache',
       link: '/development'
     },
@@ -111,7 +114,9 @@ export default function Home() {
       icon: 'terminal',
       accentColor: 'text-breeze-blue',
       title: 'CUSTOM SOFTWARE SOLUTIONS',
-      desc: 'Cloud-native full-stack microservices, API backends, and bespoke enterprise management portals engineered for durability, concurrency, and modular expansion.',
+      desc: 'Cloud-native full-stack applications, multi-entity ERPs, custom CRMs, and bespoke customer portals engineered without per-seat SaaS lock-in.',
+      bestFor: 'Manufacturing, distribution & commercial teams outgrowing disconnected Excel & rigid SaaS tools.',
+      deliverables: 'Full ERP/CRM Portals • PostgreSQL Ledger • Role-Based Access & Payment Pipelines',
       outcome: 'Zero Vendor Lock-in • High Concurrent Query Pipelines',
       link: '/development'
     },
@@ -121,7 +126,9 @@ export default function Home() {
       icon: 'monitoring',
       accentColor: 'text-body-mid',
       title: 'DATA ANALYTICS & BI',
-      desc: 'Unifying fragmented telemetry into clean pipelines with executive decision visibility. Ingestion, transformation, and live anomaly observation models built directly on warehouse layers.',
+      desc: 'Unifying fragmented billing, sales, marketing, and inventory silos into Power BI & executive dashboards with live profit visibility.',
+      bestFor: 'Founders, CFOs & ops directors tired of waiting days for conflicting manual spreadsheets.',
+      deliverables: 'Automated ELT Pipelines • Unified Single-Truth DAX Layer • Executive & Cohort Cockpits',
       outcome: 'Actionable Real-Time Signal • Zero Data Silos',
       link: '/analytics'
     },
@@ -131,7 +138,9 @@ export default function Home() {
       icon: 'psychology_alt',
       accentColor: 'text-sunset-orange',
       title: 'BUSINESS CONSULTATION',
-      desc: 'Strategic diagnostics that locate friction points and quantify automation ROI. We deconstruct operational overhead into algorithmic flowcharts for instant execution.',
+      desc: 'Strategic technology diagnostics that locate operational bottlenecks, plug margin leaks, and map high-ROI engineering roadmaps.',
+      bestFor: 'Leadership teams planning software modernization, cost reduction, or AI adoption before spending capital.',
+      deliverables: '48-Hour Friction Diagnostic • Fixed-Scope RFC Blueprint • Capital ROI Model',
       outcome: 'Quantified Capital Allocation • Elimination of Waste',
       link: '/contact'
     },
@@ -141,7 +150,9 @@ export default function Home() {
       icon: 'auto_mode',
       accentColor: 'text-breeze-blue',
       title: 'AI AUTOMATION',
-      desc: 'System-wide routine eradication using deterministic triggers and LLM orchestrations. We replace manual copy-paste workflows with resilient algorithmic handoffs.',
+      desc: 'System-wide routine eradication replacing manual email triage, invoice entry, and copy-paste tasks with deterministic AI pipelines.',
+      bestFor: 'Operations, finance & back-office teams burning 15+ hours weekly on repetitive data handling.',
+      deliverables: 'Automated Invoice & Document OCR • Lead Qualification Routing • Instant Slack/WhatsApp Dispatch',
       outcome: '85% Manual Process Deprecation • Zero Latency Routing',
       link: '/ai-workflows'
     },
@@ -151,7 +162,9 @@ export default function Home() {
       icon: 'smart_toy',
       accentColor: 'text-dusk-purple',
       title: 'AGENTIC AI & AUTONOMOUS AGENTS',
-      desc: 'Multi-agent workflows with goal seeking, error recovery, and tool execution capabilities. Autonomous units that negotiate state, resolve errors, and finalize transactional goals.',
+      desc: 'Multi-agent workflows with goal seeking, runtime error recovery, and tool execution that autonomously resolve support & ops tasks.',
+      bestFor: 'Enterprises needing 24/7 autonomous coordination across CRM, support desks, and backend databases.',
+      deliverables: 'Multi-Agent Supervisor Swarm • Tool-Calling Guardrails • Human-in-the-Loop Escalation',
       outcome: 'Unsupervised Multi-Step Goal Execution • Self-Correction',
       link: '/ai-workflows'
     },
@@ -161,7 +174,9 @@ export default function Home() {
       icon: 'dataset',
       accentColor: 'text-sunset-orange',
       title: 'RAG-BASED AI ARCHITECTURES',
-      desc: 'Grounded semantic vector retrieval over proprietary enterprise knowledge bases without hallucinations. Strict hybrid re-ranking ensuring strict citations and audited answers.',
+      desc: 'Private semantic search and conversational assistants grounded strictly on your company SOPs, PDFs, pricing rules, and policies.',
+      bestFor: 'Support, legal, onboarding & sales teams needing instant cited answers without AI hallucinations.',
+      deliverables: 'Private pgvector/Qdrant Index • Hybrid BM25 Re-Ranking • Verified Source Citations',
       outcome: '100% Deterministic Source Citation • Real-Time Re-Indexing',
       link: '/ai-workflows'
     },
@@ -171,7 +186,9 @@ export default function Home() {
       icon: 'hub',
       accentColor: 'text-breeze-blue',
       title: 'N8N WORKFLOW PIPELINES',
-      desc: 'Self-hosted high-security node pipelines connecting CRM, databases, payment gateways, and communications. Zero payload leaks with full internal governance.',
+      desc: 'Self-hosted high-security automation pipelines connecting CRMs, databases, WhatsApp, payment gateways, and Google Workspace with ₹0 Zapier tax.',
+      bestFor: 'Privacy-conscious companies scaling multi-app sync without paying steep recurring SaaS workflow fees.',
+      deliverables: 'Self-Hosted Cloud n8n Cluster • Air-Gapped Credentials • Dead-Letter Error Recovery',
       outcome: 'Air-Gapped Data Privacy • Multi-App Sync Under 1.2s',
       link: '/ai-workflows'
     }
@@ -198,46 +215,64 @@ export default function Home() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
-        {/* Hero Section */}
+        {/* Hero Section — Two-Column Horizontal Split */}
         <section className="flex flex-col pt-10 sm:pt-16 pb-12 sm:pb-20">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-4">
-            <span className="inline-block w-2 h-2 rounded-full bg-breeze-blue"></span>
-            <span className="font-mono text-xs text-breeze-blue uppercase tracking-widest font-semibold">
-              FRONTIER DIGITAL SYSTEMS & LAB
-            </span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12 sm:mb-16">
+            {/* Left Side: Business Proposition & Action CTAs */}
+            <div className="lg:col-span-6 flex flex-col">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-block w-2 h-2 rounded-full bg-breeze-blue"></span>
+                <span className="font-mono text-xs text-breeze-blue uppercase tracking-widest font-semibold">
+                  FRONTIER DIGITAL SYSTEMS & LAB
+                </span>
+              </div>
 
-          {/* Monolith Headline */}
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-ink font-normal tracking-tight leading-[1.1] mb-6 max-w-4xl">
-            Engineered digital systems that drive measurable commercial advantage.
-          </h1>
+              {/* Monolith Headline */}
+              <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.1] mb-5">
+                Engineered digital systems that drive measurable commercial advantage.
+              </h1>
 
-          {/* Subtext Statement */}
-          <p className="font-sans text-base sm:text-lg text-body-text mb-8 max-w-2xl leading-relaxed">
-            We do not build hollow websites or disconnected dashboards. At <strong className="text-ink font-semibold">KYRO</strong>, we design mission-critical software, autonomous agentic intelligence, and high-clarity analytics engineered for profit, throughput, and technological velocity.
-          </p>
+              {/* Subtext Statement */}
+              <p className="font-sans text-base sm:text-lg text-body-text mb-8 leading-relaxed">
+                We do not build hollow websites or disconnected dashboards. At <strong className="text-ink font-semibold">KYRO</strong>, we design mission-critical custom software, autonomous AI workflows, and executive analytics engineered for revenue, margin clarity, and operational speed.
+              </p>
 
-          {/* Interactive Precision Pills */}
-          <div className="flex flex-wrap items-center gap-3 mb-12 sm:mb-16">
-            <Link
-              to="/development"
-              className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-surface-container-low border border-pill-border text-ink font-mono text-xs sm:text-sm shadow-sm transition-all hover:bg-surface-container-high hover:border-breeze-blue active:scale-95"
-            >
-              Explore Solutions
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-primary text-on-primary font-mono text-xs sm:text-sm font-semibold shadow-md transition-all hover:bg-primary-fixed active:scale-95"
-            >
-              Enquire Now
-            </Link>
-            <Link
-              to="/pricing"
-              className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-surface-container-lowest border border-hairline text-body-mid hover:text-ink font-mono text-xs sm:text-sm transition-all"
-            >
-              View Pricing & SLAs
-            </Link>
+              {/* Interactive Precision Pills */}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  to="/development"
+                  className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-surface-container-low border border-pill-border text-ink font-mono text-xs sm:text-sm shadow-sm transition-all hover:bg-surface-container-high hover:border-breeze-blue active:scale-95"
+                >
+                  Explore Solutions
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-primary text-on-primary font-mono text-xs sm:text-sm font-semibold shadow-md transition-all hover:bg-primary-fixed active:scale-95"
+                >
+                  Enquire Now
+                </Link>
+                <Link
+                  to="/pricing"
+                  className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-surface-container-lowest border border-hairline text-body-mid hover:text-ink font-mono text-xs sm:text-sm transition-all"
+                >
+                  View Pricing & SLAs
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Side: Single Clean Client Deliverable UI Preview */}
+            <div className="lg:col-span-6">
+              <UiPreviewFrame
+                src="/images/executive-summary-bi.jpg"
+                alt="KYRO Executive Command & Software System Deliverable Interface"
+                title="KYRO Deliverable Interface • Executive Performance & Systems"
+                badge="Client Preview"
+                caption="How your leadership software and telemetry look in production: unified clarity built around revenue, margins, and divisions."
+                metrics={['100% Owned IP', 'Zero SaaS Lock-in', 'Real-Time']}
+                eager={true}
+              />
+            </div>
           </div>
 
           {/* Purple Cow USP Highlight Box */}
@@ -472,15 +507,33 @@ export default function Home() {
                   <h3 className="font-sans text-lg sm:text-xl text-ink font-medium mb-3 tracking-tight">
                     {srv.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-body-text mb-5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-body-text mb-4 leading-relaxed">
                     {srv.desc}
                   </p>
+                  <div className="space-y-2 mb-5 p-3.5 rounded-xl bg-surface-container-low border border-hairline/50 text-xs">
+                    <div>
+                      <span className="font-mono text-[10px] text-breeze-blue uppercase font-semibold block">
+                        WHO THIS HELPS
+                      </span>
+                      <span className="text-body-text leading-snug block mt-0.5">
+                        {srv.bestFor}
+                      </span>
+                    </div>
+                    <div className="pt-2 border-t border-hairline/40">
+                      <span className="font-mono text-[10px] text-sunset-orange uppercase font-semibold block">
+                        INCLUDED DELIVERABLES
+                      </span>
+                      <span className="text-ink leading-snug block mt-0.5">
+                        {srv.deliverables}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
                   <div className="p-3 rounded-lg bg-surface-container border border-hairline/40 mb-5">
                     <span className="block font-mono text-[10px] text-body-mid uppercase mb-1">
-                      KEY OUTCOME BULLET
+                      BUSINESS OUTCOME
                     </span>
                     <span className="font-mono text-xs text-ink">
                       {srv.outcome}

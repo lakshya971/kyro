@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import UiPreviewFrame from '../components/UiPreviewFrame';
 
 export default function AiWorkflows() {
   // Active Interactive Architecture Tab
@@ -330,43 +331,82 @@ export default function AiWorkflows() {
       id: '01',
       title: 'AI-Powered Business Automation',
       icon: 'psychology',
-      desc: 'Deterministic business tasks delegated to neural pipelines. High-throughput ingestion, categorization, and validation without human intervention.',
+      desc: 'Delegate repetitive lead sorting, email replies, order validation, and back-office data entry to deterministic AI workflows that execute 24/7.',
+      idealFor: 'Sales, Operations & Admin Teams',
+      businessBenefit: 'Reclaims 15–30 productive hours per team member monthly while cutting manual entry errors to zero.',
       metric: '85% Manual Drop'
     },
     {
       id: '02',
       title: 'Agentic AI & Autonomous Workflows',
       icon: 'smart_toy',
-      desc: 'Multi-agent swarms with goal seeking, runtime error recovery, external tool execution, and deterministic consensus voting on critical actions.',
+      desc: 'Multi-agent systems that plan steps, call databases or external APIs, verify results, recover from API timeouts, and escalate exceptions to humans automatically.',
+      idealFor: 'Customer Ops, Procurement & Support Workflows',
+      businessBenefit: 'Completes multi-step business goals end-to-end without staff micromanagement.',
       metric: 'Self-Correcting DAG'
     },
     {
       id: '03',
       title: 'Grounded Enterprise RAG Systems',
       icon: 'dataset',
-      desc: 'Strict hybrid vector + sparse keyword search over enterprise knowledge bases with strict markdown citations and zero hallucination boundaries.',
+      desc: 'Private company AI trained strictly on your pricing catalogs, SOPs, product manuals, and contracts—producing instant cited answers with zero fabrication.',
+      idealFor: 'Support Desks, Sales Reps & Internal Onboarding',
+      businessBenefit: 'Cuts customer response times from hours to 3 seconds using verified company policy documents.',
       metric: '100% Sourced Citations'
     },
     {
       id: '04',
       title: 'Self-Hosted n8n Orchestrations',
       icon: 'hub',
-      desc: 'Air-gapped, sovereign webhook pipelines connecting internal databases, payment gateways, CRM events, and alerting channels without data leakage.',
+      desc: 'Private automation clusters hosted on your own cloud server connecting CRMs, PostgreSQL, Razorpay/Stripe, Google Sheets, WhatsApp, and Slack with zero Zapier tax.',
+      idealFor: 'Privacy-Sensitive & High-Volume Automation Teams',
+      businessBenefit: 'Saves ₹15,000–₹75,000+/month on per-task SaaS automation fees with 100% internal data security.',
       metric: '100% Data Sovereignty'
     },
     {
       id: '05',
       title: 'Intelligent Document Processing & OCR',
       icon: 'description',
-      desc: 'Automated invoice parsing, unstructured legal document synthesis, table extraction, and structured JSON output mapping with 99.7% field fidelity.',
+      desc: 'Automatically read supplier invoices, GST bills, PO PDFs, and KYC documents into clean database rows and accounting approvals in under a second.',
+      idealFor: 'Finance, Accounting & Logistics Teams',
+      businessBenefit: 'Replaces hours of manual PDF-to-ERP typing with automated 99.7% field-verified extraction.',
       metric: 'Sub-second Parsing'
     },
     {
       id: '06',
       title: 'Multi-App API Semantic Bridges',
       icon: 'sync_alt',
-      desc: 'Unified semantic bridges connecting SAP, Salesforce, custom PostgreSQL stores, WhatsApp Business API, Slack channels, and payment pipelines.',
+      desc: 'Two-way real-time synchronization keeping your accounting, CRM, inventory, WhatsApp alerts, and leadership sheets permanently aligned.',
+      idealFor: 'Multi-Department B2B & E-Commerce Firms',
+      businessBenefit: 'Eliminates conflicting customer/stock data across sales, warehouse, and finance departments.',
       metric: 'Zero Manual Sync'
+    }
+  ];
+
+  const aiDepartmentPlaybook = [
+    {
+      dept: 'SALES & LEAD RESPONSE',
+      before: 'Web leads sit unread for 4–8 hours before reps manually enter CRM rows and email quotes.',
+      after: 'Webhook catches inquiry in 14ms, enriches company data, scores lead, updates CRM, alerts Slack/WhatsApp, and sends tailored calendar link instantly.',
+      impact: '3x–5x faster speed-to-lead conversion'
+    },
+    {
+      dept: 'FINANCE & INVOICE OPS',
+      before: 'Accounts staff spend days opening supplier PDFs, checking GST numbers, and typing line items into ERP.',
+      after: 'AI OCR parses incoming PDF invoices automatically, cross-checks PO amounts in PostgreSQL, flags mismatches, and queues approved payouts.',
+      impact: '85% drop in manual accounting hours'
+    },
+    {
+      dept: 'CUSTOMER SUPPORT & CHAT',
+      before: 'Support agents answer repetitive order status, policy, and troubleshooting questions manually all day.',
+      after: 'Grounded RAG Chatbot answers 24/7 directly from your live order API and SOP docs, capturing leads and handing off edge cases cleanly.',
+      impact: '70%+ Tier-1 ticket deflection'
+    },
+    {
+      dept: 'OPERATIONS & ONBOARDING',
+      before: 'New client or vendor onboarding requires chasing KYC docs over WhatsApp and updating 5 different tools.',
+      after: 'Conditional multi-branch DAG validates submitted identity IDs, checks duplicates in DB, creates workspace accounts, and sends customized welcome kits.',
+      impact: 'Zero onboarding bottlenecks or missed checks'
     }
   ];
 
@@ -388,21 +428,63 @@ export default function AiWorkflows() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
-        {/* Hero Section */}
+        {/* Hero Section — Two-Column Horizontal Split */}
         <section className="flex flex-col pt-10 sm:pt-16 pb-10 sm:pb-14">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
-              SERVICE CAPABILITY 02
-            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10">
+            {/* Left Side: Value Proposition & Quick Actions */}
+            <div className="lg:col-span-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
+                  SERVICE CAPABILITY 02
+                </span>
+              </div>
+
+              <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.12] mb-5">
+                Autonomous Agentic AI & Enterprise Automation
+              </h1>
+
+              <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-7">
+                At <strong className="text-ink font-semibold">KYRO</strong>, we replace repetitive manual office routines, disconnected software handoffs, and slow customer replies with self-hosted n8n pipelines, grounded RAG assistants, and autonomous AI agents you own 100%.
+              </p>
+
+              {/* Quick Nav Anchors */}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
+                >
+                  Request Automation Audit
+                </Link>
+                <a
+                  href="#ai-workflow-cockpit"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Inspect Automation Engines</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+                <a
+                  href="#ai-delivery-workflow"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Delivery Workflow</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side: Single Clean Deliverable Visual Preview */}
+            <div className="lg:col-span-6">
+              <UiPreviewFrame
+                src="/images/agent-orchestration-dashboard.jpg"
+                alt="Multi-Agent AI Orchestration & Workflow Graph Preview"
+                title="Client Deliverable Preview • Agentic Swarm & Workflow Monitor"
+                badge="AI Orchestration"
+                caption="Visual preview of how autonomous agents coordinate sub-tasks, enforce guardrails, and log outcomes at 99.4% accuracy."
+                metrics={['99.4% Accuracy', 'Air-Gapped n8n', '24/7 Autonomy']}
+                eager={true}
+              />
+            </div>
           </div>
-
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-ink font-normal tracking-tight leading-[1.12] mb-5 max-w-4xl">
-            Autonomous Agentic AI & Enterprise Automation
-          </h1>
-
-          <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-8 max-w-3xl">
-            At <strong className="text-ink font-semibold">KYRO</strong>, we architect high-integrity agentic swarms, deterministic n8n pipelines, and self-hosted automation infrastructure engineered for institutional precision, zero hallucination, and direct operational velocity.
-          </p>
 
           {/* Operational Metrics Strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-canvas-card border border-hairline p-5 rounded-2xl shadow-sm">
@@ -438,30 +520,6 @@ export default function AiWorkflows() {
                 Data Sovereignty (Air-Gapped)
               </span>
             </div>
-          </div>
-
-          {/* Quick Nav Anchors */}
-          <div className="flex flex-wrap items-center gap-3 mt-8">
-            <a
-              href="#ai-delivery-workflow"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
-            >
-              <span>View Client Delivery Process Workflow</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <a
-              href="#ai-workflow-cockpit"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
-            >
-              <span>Test Interactive Automation Engine</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
-            >
-              Request Automation Audit
-            </Link>
           </div>
         </section>
 
@@ -721,6 +779,34 @@ export default function AiWorkflows() {
                   </div>
                 </div>
 
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-sunset-orange uppercase font-bold">
+                      HOW THIS HELPS YOUR BUSINESS
+                    </span>
+                    <h4 className="font-sans text-lg font-semibold text-ink">
+                      Instant Lead Capture Without Manual Copy-Paste
+                    </h4>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Every time a customer submits a website form or makes a payment, KYRO automatically normalizes the fields, updates your Google Sheet or SQL ledger, notifies your sales team on Slack or WhatsApp, and dispatches a tailored email receipt.
+                    </p>
+                    <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
+                      <div>• Replaces manual CSV exports and delayed sales follow-ups</div>
+                      <div>• Hosted cleanly inside your server with zero monthly SaaS fees</div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/n8n-multistep-flow.jpg"
+                      alt="Building Multi-Step n8n Workflow Diagram"
+                      title="Multi-Step Pipeline Blueprint • Webhook to Slack & Email"
+                      badge="n8n Flow"
+                      caption="Clean visual blueprint of an end-to-end Webhook, Data Set, Google Sheets, Slack & Email flow."
+                    />
+                  </div>
+                </div>
+
                 {/* Step Chain Interactive Graph */}
                 <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
                   {workflowSteps.map((step, sIdx) => {
@@ -815,6 +901,34 @@ export default function AiWorkflows() {
                   <span className="font-mono text-xs text-body-mid bg-surface-container px-3 py-1 rounded-full border border-hairline">
                     Conditional Branching: IF/ELSE + Database Check
                   </span>
+                </div>
+
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-breeze-blue uppercase font-bold">
+                      COMPLEX DECISION AUTOMATION
+                    </span>
+                    <h4 className="font-sans text-lg font-semibold text-ink">
+                      Handle Exceptions, Approvals & KYC Branches Automatically
+                    </h4>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Real operations are rarely linear. KYRO architects intelligent multi-branch pipelines that query your database, check for duplicates or deactivated profiles, generate tailored LLM onboarding messages, and route approvals cleanly.
+                    </p>
+                    <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
+                      <div>• Prevents duplicate records and unverified account leaks</div>
+                      <div>• Combines PostgreSQL lookups with AI messaging seamlessly</div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/n8n-enterprise-pipeline.jpg"
+                      alt="Complex Multi-Branch Enterprise Automation Pipeline"
+                      title="Enterprise DAG Workflow • KYC Validation & Conditional Routing"
+                      badge="Enterprise DAG"
+                      caption="Production dark-mode workflow graph routing new vs existing customer actions automatically."
+                    />
+                  </div>
                 </div>
 
                 {/* Node Selector Grid */}
@@ -925,6 +1039,34 @@ export default function AiWorkflows() {
                   </div>
                 </div>
 
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-emerald-400 uppercase font-bold">
+                      TRANSPARENT OPERATIONAL CONTROL
+                    </span>
+                    <h4 className="font-sans text-lg font-semibold text-ink">
+                      Inspect Every Trigger, AI Node & Human Approval Step Visually
+                    </h4>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Unlike black-box AI scripts that break silently, KYRO delivers self-hosted visual workflow canvases where your internal team can trace every webhook trigger, API call, and human-in-the-loop approval gate clearly.
+                    </p>
+                    <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
+                      <div>• Connects Weather/External APIs, Code transforms, Slack & AI</div>
+                      <div>• Complete audit logs for every execution item</div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/n8n-workflow-canvas.jpg"
+                      alt="Self-Hosted n8n Visual Workflow Canvas & Palette"
+                      title="Visual Canvas UI • Triggers, Code Transforms & AI Action Nodes"
+                      badge="Canvas Spec"
+                      caption="Clean visual editor delivered inside your private infrastructure for 100% transparency."
+                    />
+                  </div>
+                </div>
+
                 {/* Category Switcher */}
                 <div className="flex flex-wrap gap-2">
                   {Object.keys(paletteCategories).map((catKey) => {
@@ -995,6 +1137,34 @@ export default function AiWorkflows() {
                     <span className="font-mono text-xs text-emerald-400 font-bold bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-full">
                       SUCCESS RATE: 99.4%
                     </span>
+                  </div>
+                </div>
+
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-dusk-purple uppercase font-bold">
+                      AUTONOMOUS TASK DELEGATION
+                    </span>
+                    <h4 className="font-sans text-lg font-semibold text-ink">
+                      Specialist AI Agents Collaborating on Multi-Step Goals
+                    </h4>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Rather than one fragile prompt trying to do everything, KYRO deploys specialized subagents (Research, Documentation, DevOps, Execution) overseen by a master dispatcher that recovers errors automatically.
+                    </p>
+                    <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
+                      <div>• Tracks live token efficiency, session depth & 99.4% completion rate</div>
+                      <div>• Automatic context compaction prevents long-task drift</div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/agent-orchestration-dashboard.jpg"
+                      alt="Agentic Swarm Sankey Graph & Subagent Monitor"
+                      title="Agent Swarm Dashboard • Sankey Flow & Completion Telemetry"
+                      badge="Swarm Monitor"
+                      caption="Full observability over subagent execution paths, sessions, and outcomes."
+                    />
                   </div>
                 </div>
 
@@ -1091,6 +1261,34 @@ export default function AiWorkflows() {
                   <span className="font-mono text-xs text-body-mid">
                     Grounded RAG • Vector Index Active
                   </span>
+                </div>
+
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-pink-400 uppercase font-bold">
+                      24/7 SUPPORT & LEAD CAPTURE
+                    </span>
+                    <h4 className="font-sans text-lg font-semibold text-ink">
+                      Answer Company-Specific Questions Without Making Facts Up
+                    </h4>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Generic chatbots hallucinate discounts or policies. KYRO trains private RAG assistants over your verified pricing, FAQs, and documentation so visitors get exact answers and qualify leads around the clock.
+                    </p>
+                    <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
+                      <div>• Answers strictly from approved internal SOP & product docs</div>
+                      <div>• Captures verified business leads straight into your CRM</div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/conversational-ai-interface.jpg"
+                      alt="Conversational AI Support & Lead Capture Interface Preview"
+                      title="Grounded Conversational AI • Support & Lead Qualification UI"
+                      badge="RAG Chat UI"
+                      caption="Clean website assistant interface answering product questions & capturing leads naturally."
+                    />
+                  </div>
                 </div>
 
                 {/* Live Chat Simulator Box */}
@@ -1223,21 +1421,21 @@ export default function AiWorkflows() {
           </div>
         </section>
 
-        {/* Section 2: Core Capabilities Breakdown */}
+        {/* Section 2: Core Capabilities Breakdown & Department Clarity */}
         <section className="py-10 sm:py-16">
           <div className="flex flex-col mb-8">
             <span className="font-mono text-xs uppercase text-sunset-orange tracking-widest font-semibold mb-2">
-              CORE CAPABILITIES
+              CORE CAPABILITIES & BUSINESS CLARITY
             </span>
             <h2 className="font-sans text-2xl sm:text-4xl text-ink font-normal tracking-tight">
-              Engineered Capabilities Breakdown
+              Engineered Automation Capabilities Breakdown
             </h2>
-            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-xl">
-              Modular neural layers deployed into sovereign client clouds with air-gapped guarantees and strict transactional rollbacks.
+            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-2xl">
+              Clear operational scope showing who uses each AI workflow, what manual labor it replaces inside your business, and exact reliability benchmarks.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
             {capabilities.map((cap) => (
               <article
                 key={cap.id}
@@ -1256,6 +1454,20 @@ export default function AiWorkflows() {
                   <p className="text-xs sm:text-sm text-body-text leading-relaxed mb-4">
                     {cap.desc}
                   </p>
+                  <div className="space-y-2 p-3.5 rounded-xl bg-surface-container-lowest border border-hairline/70 mb-4 text-xs">
+                    <div>
+                      <span className="font-mono text-[10px] text-breeze-blue uppercase font-semibold block">
+                        BEST FOR TEAMS
+                      </span>
+                      <span className="text-ink leading-snug block mt-0.5">{cap.idealFor}</span>
+                    </div>
+                    <div className="pt-2 border-t border-hairline/40">
+                      <span className="font-mono text-[10px] text-sunset-orange uppercase font-semibold block">
+                        OPERATIONAL BENEFIT
+                      </span>
+                      <span className="text-body-mid leading-snug block mt-0.5">{cap.businessBenefit}</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="pt-3 border-t border-hairline/60 flex items-center justify-between">
                   <span className="font-mono text-[11px] text-body-mid uppercase">BENCHMARK</span>
@@ -1265,6 +1477,49 @@ export default function AiWorkflows() {
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Department Before vs After Clarification Matrix */}
+          <div className="bg-surface-container-lowest border border-hairline rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-md">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-hairline/60">
+              <div>
+                <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider font-semibold">
+                  DEPARTMENT PLAYBOOK • BEFORE VS AFTER KYRO
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl text-ink font-medium mt-1">
+                  Concrete Automation Impact Across Core Business Functions
+                </h3>
+              </div>
+              <span className="font-mono text-[11px] text-breeze-blue bg-surface-container px-3 py-1 rounded-full border border-hairline shrink-0">
+                100% Data Sovereignty Inside Your Network
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {aiDepartmentPlaybook.map((item) => (
+                <div
+                  key={item.dept}
+                  className="p-5 rounded-2xl bg-canvas-card border border-hairline flex flex-col justify-between gap-3"
+                >
+                  <div className="flex flex-col gap-2">
+                    <span className="font-mono text-[11px] text-sunset-orange font-bold uppercase">
+                      {item.dept}
+                    </span>
+                    <div className="text-xs text-body-mid leading-relaxed">
+                      <strong className="text-rose-300 font-medium">Before Automation: </strong>
+                      {item.before}
+                    </div>
+                    <div className="text-xs text-body-text leading-relaxed">
+                      <strong className="text-breeze-blue font-medium">After KYRO: </strong>
+                      {item.after}
+                    </div>
+                  </div>
+                  <div className="pt-3 border-t border-hairline/50 text-xs font-mono text-emerald-400">
+                    Measured Impact: {item.impact}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

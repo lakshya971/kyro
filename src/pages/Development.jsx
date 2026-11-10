@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UiPreviewFrame from '../components/UiPreviewFrame';
 
 export default function Development() {
   const [activeSoftwareTab, setActiveSoftwareTab] = useState('erp');
@@ -217,35 +218,78 @@ export default function Development() {
   const capabilities = [
     {
       id: '01.01',
-      tag: '01.01 • INTERFACE',
+      tag: '01.01 • WEB & COMMERCE',
       icon: 'speed',
-      title: 'Website Design & Development',
-      desc: 'Modern, fluidly responsive web architecture with sub-second execution thresholds, fine-tuned asset optimization, and accessibility standards built directly into the DOM tree.',
+      title: 'Website Design & High-Conversion Engineering',
+      desc: 'Fast, responsive web platforms engineered for search engine dominance, high paid-ad conversion rates, and effortless buyer journeys without bloated page builders.',
+      idealFor: 'D2C Brands, B2B Companies & High-Growth Firms',
+      painSolved: 'Eliminates slow 5s+ WordPress/Wix pages that waste 40–60% of paid marketing traffic.',
+      timeline: '5–14 Days Delivery',
       deliverable: 'Core Web Vitals 99+ • Sub-200ms TTFB Global Edge'
     },
     {
       id: '01.02',
-      tag: '01.02 • ARCHITECTURE',
+      tag: '01.02 • ERP, CRM & PORTALS',
       icon: 'database',
-      title: 'Custom Enterprise Software Solutions',
-      desc: 'Bespoke backend architectures, microservices, and internal administrative tooling. Engineered for high concurrency, automated state reconciliation, and bulletproof transactional integrity.',
-      deliverable: 'Zero Vendor Lock-in • High Concurrent Query Pipelines'
+      title: 'Custom Enterprise Software & Internal Portals',
+      desc: 'Bespoke ERPs, CRM systems, multi-warehouse stock control, dealer ordering portals, and billing ledgers tailored 100% around your company operations.',
+      idealFor: 'Manufacturing, Wholesale, Logistics & Service Teams',
+      painSolved: 'Replaces error-prone Excel sheets & expensive ₹15k–₹80k/mo per-user SaaS subscriptions.',
+      timeline: '2–4 Weeks Milestone Sprints',
+      deliverable: 'Zero Vendor Lock-in • Full Relational Ledger & RBAC'
     },
     {
       id: '01.03',
-      tag: '01.03 • INTEGRATION',
+      tag: '01.03 • INTEGRATIONS',
       icon: 'api',
-      title: 'API Integrations & Webhooks',
-      desc: 'Scalable REST and GraphQL endpoints with strictly validated schemas, edge rate-limiting, and idempotent webhook handlers to connect ERP, CRM, and banking services.',
-      deliverable: 'P99 Under 18ms Latency • Idempotent Rollback Guardrails'
+      title: 'Business API Bridges & Payment Webhooks',
+      desc: 'Automated two-way connections syncing your website or ERP with Tally, Razorpay/Stripe, Shiprocket, WhatsApp Business notifications, and GST tax engines.',
+      idealFor: 'Businesses running disconnected billing, shipping & CRM apps',
+      painSolved: 'Eliminates manual double-entry between finance, warehouse, and customer teams.',
+      timeline: '5–10 Days Integration Window',
+      deliverable: 'P99 Under 18ms Latency • Automatic Rollback Safety'
     },
     {
       id: '01.04',
-      tag: '01.04 • RESILIENCE',
+      tag: '01.04 • CLOUD & SECURITY',
       icon: 'cloud_done',
-      title: 'Cloud-Native Deployment & Security',
-      desc: 'Containerized infrastructure on AWS, Google Cloud, or bare metal. Automated CI/CD pipelines, cryptographic audit logs, and zero-downtime rolling updates.',
-      deliverable: '99.98% Service Uptime • Automated Failover Rings'
+      title: 'Cloud Infrastructure & Sovereign Deployment',
+      desc: 'Production hosting on AWS, Google Cloud, or your private cloud with SSL, daily encrypted database backups, access logs, and zero-downtime releases.',
+      idealFor: 'Organizations requiring audit compliance & complete IP security',
+      painSolved: 'Removes single-point-of-failure outages and protects confidential company records.',
+      timeline: 'Continuous Zero-Downtime Pipeline',
+      deliverable: '99.98% Service Uptime • 100% Client IP Assignment'
+    }
+  ];
+
+  const serviceClarificationTracks = [
+    {
+      track: 'TRACK 01',
+      title: 'Business Websites & E-Commerce Engines',
+      bottleneck: 'Slow template websites hurt Google SEO rankings, lose mobile shoppers, and require recurring paid plugins.',
+      whatYouGet: 'Custom responsive UI built in React & Tailwind CSS, interactive product/quote flows, SEO schema, CRM lead webhooks, and sub-second load speeds.',
+      businessOutcome: '+35% to +60% higher mobile inquiry/checkout conversion with zero plugin license fees.'
+    },
+    {
+      track: 'TRACK 02',
+      title: 'Custom Internal ERP & Operations Suites',
+      bottleneck: 'Disconnected Excel files across accounts, inventory, and sales cause stockouts, delayed invoicing, and revenue leaks.',
+      whatYouGet: 'Unified central cockpit covering Sales Invoices, Purchase Orders, Warehouse SKUs, Low-Stock Reorder Alerts, Staff Approvals, and Expense Ledgers.',
+      businessOutcome: 'Real-time visibility across every branch and warehouse from a single browser login.'
+    },
+    {
+      track: 'TRACK 03',
+      title: 'Commercial SaaS Products & Customer Portals',
+      bottleneck: 'Off-the-shelf software forces your team and customers to work around rigid templates that block scaling.',
+      whatYouGet: 'Production multi-tenant SaaS application with secure role-based login, Razorpay/Stripe subscription billing, self-serve customer portals, and clean APIs.',
+      businessOutcome: 'Own your proprietary software asset 100%—ready to onboard thousands of paying users.'
+    },
+    {
+      track: 'TRACK 04',
+      title: 'Legacy Software Modernization & Sync',
+      bottleneck: 'Aging desktop software or siloed ERPs force staff to manually export CSVs into accounting, WhatsApp, and courier portals.',
+      whatYouGet: 'Modern cloud web layers and fault-tolerant API connectors bridging GST/Tally billing, courier tracking, and WhatsApp order status updates automatically.',
+      businessOutcome: 'Zero manual copy-paste operations and instant live status updates for management & clients.'
     }
   ];
 
@@ -269,21 +313,63 @@ export default function Development() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
-        {/* Hero Section */}
+        {/* Hero Section — Two-Column Horizontal Split */}
         <section className="flex flex-col pt-10 sm:pt-16 pb-10 sm:pb-14">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
-              SERVICE CAPABILITY 01
-            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10">
+            {/* Left Side: Hero Copy & Quick Navigation */}
+            <div className="lg:col-span-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
+                  SERVICE CAPABILITY 01
+                </span>
+              </div>
+
+              <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.12] mb-5">
+                Website Development & Custom Software Engineering
+              </h1>
+
+              <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-7">
+                At <strong className="text-ink font-semibold">KYRO</strong>, we build fast business websites, custom ERPs, CRM systems, and client portals tailored to your workflows—with full source-code ownership, zero recurring SaaS seat taxes, and sub-second performance.
+              </p>
+
+              {/* Quick Nav Anchors */}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
+                >
+                  Request Architecture Scope
+                </Link>
+                <a
+                  href="#software-architecture-showcase"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Inspect Software Suites</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+                <a
+                  href="#software-delivery-workflow"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Delivery Workflow</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side: Single Clean Deliverable Visual Preview */}
+            <div className="lg:col-span-6">
+              <UiPreviewFrame
+                src="/images/erp-enterprise-software.jpg"
+                alt="Custom Enterprise ERP Operational Software Preview"
+                title="Client Deliverable Preview • Multi-Entity Enterprise ERP Suite"
+                badge="Custom Software"
+                caption="Visual preview of the custom financial ledger, inventory alerts, and sales invoicing platform built for operations teams."
+                metrics={['100% Owned IP', 'Role-Based Access', 'ACID Ledger']}
+                eager={true}
+              />
+            </div>
           </div>
-
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-ink font-normal tracking-tight leading-[1.12] mb-5 max-w-4xl">
-            Website Development & Custom Software Engineering
-          </h1>
-
-          <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-8 max-w-3xl">
-            At <strong className="text-ink font-semibold">KYRO</strong>, we engineer high-performance web systems, cloud-native microservices, and bespoke software solutions built with zero vendor lock-in, extreme speed, and institutional reliability.
-          </p>
 
           {/* Operational Metrics Monoliths */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-canvas-card border border-hairline p-5 rounded-2xl shadow-sm">
@@ -319,30 +405,6 @@ export default function Development() {
                 Full Code Warranty
               </span>
             </div>
-          </div>
-
-          {/* Quick Nav Anchors */}
-          <div className="flex flex-wrap items-center gap-3 mt-8">
-            <a
-              href="#software-delivery-workflow"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
-            >
-              <span>View Client Delivery Process Workflow</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <a
-              href="#software-architecture-showcase"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
-            >
-              <span>Inspect Live Software Cockpit</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
-            >
-              Request Architecture Scope
-            </Link>
           </div>
         </section>
 
@@ -607,6 +669,44 @@ export default function Development() {
                   </div>
                 </div>
 
+                {/* Two-Column Visual Blueprint + Business Clarity */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-sunset-orange uppercase font-bold tracking-wider">
+                      WHY CUSTOM ERP OUTPERFORMS SPREADSHEETS
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      One Live Workspace for Finance, Sales & Warehouse Inventory
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Instead of paying recurring per-user licenses for bloated software your staff barely uses, KYRO engineers a fast, custom ERP fitted to your billing rules, warehouse SKUs, and approval hierarchy.
+                    </p>
+                    <ul className="space-y-2 text-xs text-body-text pt-1">
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-sunset-orange text-[16px] shrink-0">check_circle</span>
+                        <span>Automated invoicing status tracking (Paid, Pending, Overdue) & GST ledger sync</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-sunset-orange text-[16px] shrink-0">check_circle</span>
+                        <span>Real-time stock alerts preventing warehouse stockouts before orders stall</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-sunset-orange text-[16px] shrink-0">check_circle</span>
+                        <span>Zero per-seat fee expansion as you add 10 or 500 staff accounts</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/erp-enterprise-software.jpg"
+                      alt="Enterprise ERP Operational Interface"
+                      title="Enterprise ERP Suite • Finance, Banking & Inventory Control"
+                      badge="ERP UI Spec"
+                      caption="Full operational control plane designed for multi-branch operations."
+                    />
+                  </div>
+                </div>
+
                 {/* 6 Top Financial & Operational Metric Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between shadow-sm">
@@ -785,6 +885,44 @@ export default function Development() {
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                     <span className="text-body-mid text-[11px]">Realtime WebSocket Pipeline Monitored</span>
+                  </div>
+                </div>
+
+                {/* Two-Column Visual Blueprint + Business Clarity */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-breeze-blue uppercase font-bold tracking-wider">
+                      REVENUE CLARITY FOR B2B SALES TEAMS
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Track Deals, Rep Quotas & Daily Client Activities Without Seat Fees
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Generic SaaS CRMs charge steeply per sales representative while burying simple follow-up accountability. KYRO builds proprietary CRM pipelines matched directly to your sales stages, quotes, and commission rules.
+                    </p>
+                    <ul className="space-y-2 text-xs text-body-text pt-1">
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-breeze-blue text-[16px] shrink-0">check_circle</span>
+                        <span>Visual deal waterfall showing top closers, pipeline bottlenecks & conversion split</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-breeze-blue text-[16px] shrink-0">check_circle</span>
+                        <span>Omnichannel logging linking client calls, emails, and meetings automatically</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-breeze-blue text-[16px] shrink-0">check_circle</span>
+                        <span>Direct handoff from closed deals into invoicing and project onboarding</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/crm-executive-software.jpg"
+                      alt="Custom Enterprise CRM Sales Dashboard Preview"
+                      title="Custom CRM Suite • Executive Sales, Deals & Rep Leaderboard"
+                      badge="CRM UI Spec"
+                      caption="High-velocity B2B sales dashboard built with zero recurring seat charges."
+                    />
                   </div>
                 </div>
 
@@ -1041,21 +1179,21 @@ export default function Development() {
           </div>
         </section>
 
-        {/* Section 2: Core Engineering Capabilities Grid */}
+        {/* Section 2: Core Engineering Capabilities & Business Clarification */}
         <section className="py-10 sm:py-16">
           <div className="flex flex-col mb-8">
             <span className="font-mono text-xs uppercase text-sunset-orange tracking-widest font-semibold mb-2">
-              ARCHITECTURE CAPABILITIES
+              ARCHITECTURE CAPABILITIES & BUSINESS SCOPE
             </span>
             <h2 className="font-sans text-2xl sm:text-4xl text-ink font-normal tracking-tight">
-              Disciplined Full-Stack Disciplines
+              Disciplined Full-Stack Software Systems
             </h2>
-            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-xl">
-              Engineered with extreme precision, typed contracts, sub-second TTFB, and sovereign cloud deployments.
+            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-2xl">
+              Clear specifications written for both founders and technical teams: understand what we build, who it helps, and which business bottleneck each engineering discipline eliminates.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {capabilities.map((cap) => (
               <div
                 key={cap.id}
@@ -1073,18 +1211,85 @@ export default function Development() {
                   <h3 className="font-sans text-xl text-ink font-medium mb-2">
                     {cap.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-body-text leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-body-text leading-relaxed mb-5">
                     {cap.desc}
                   </p>
+
+                  {/* Deep Business Clarification Box */}
+                  <div className="space-y-2.5 p-4 rounded-xl bg-surface-container-lowest border border-hairline/70 mb-5 text-xs">
+                    <div>
+                      <span className="font-mono text-[10px] text-breeze-blue uppercase font-semibold block">
+                        IDEAL FOR BUSINESSES
+                      </span>
+                      <span className="text-ink leading-snug block mt-0.5">
+                        {cap.idealFor}
+                      </span>
+                    </div>
+                    <div className="pt-2 border-t border-hairline/40">
+                      <span className="font-mono text-[10px] text-sunset-orange uppercase font-semibold block">
+                        BOTTLENECK ELIMINATED
+                      </span>
+                      <span className="text-body-mid leading-snug block mt-0.5">
+                        {cap.painSolved}
+                      </span>
+                    </div>
+                    <div className="pt-2 border-t border-hairline/40 flex items-center justify-between">
+                      <span className="font-mono text-[10px] text-body-mid uppercase">DELIVERY CADENCE</span>
+                      <span className="font-mono text-[11px] text-emerald-400 font-semibold">{cap.timeline}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="pt-4 border-t border-hairline/60 flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-body-mid uppercase">SPECIFICATION</span>
-                  <span className="font-mono text-xs text-breeze-blue font-semibold">
+                <div className="pt-4 border-t border-hairline/60 flex items-center justify-between gap-2">
+                  <span className="font-mono text-[11px] text-body-mid uppercase shrink-0">BENCHMARK</span>
+                  <span className="font-mono text-xs text-breeze-blue font-semibold text-right">
                     {cap.deliverable}
                   </span>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Dedicated Business Clarification Guide */}
+          <div className="bg-surface-container-lowest border border-hairline rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-md">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-hairline/60">
+              <div>
+                <span className="font-mono text-xs text-breeze-blue uppercase tracking-wider font-semibold">
+                  BUSINESS CLARITY GUIDE
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl text-ink font-medium mt-1">
+                  Which Software Track Matches Your Exact Business Goal?
+                </h3>
+              </div>
+              <span className="font-mono text-[11px] text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 px-3 py-1 rounded-full shrink-0">
+                100% Client IP Ownership Across All Tracks
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {serviceClarificationTracks.map((item) => (
+                <div
+                  key={item.track}
+                  className="p-5 rounded-2xl bg-canvas-card border border-hairline flex flex-col justify-between gap-3"
+                >
+                  <div className="flex flex-col gap-2">
+                    <span className="font-mono text-[11px] text-sunset-orange font-bold uppercase">
+                      {item.track} • {item.title}
+                    </span>
+                    <div className="text-xs text-body-mid leading-relaxed">
+                      <strong className="text-rose-300 font-medium">Problem Solved: </strong>
+                      {item.bottleneck}
+                    </div>
+                    <div className="text-xs text-body-text leading-relaxed">
+                      <strong className="text-breeze-blue font-medium">What KYRO Builds: </strong>
+                      {item.whatYouGet}
+                    </div>
+                  </div>
+                  <div className="pt-3 border-t border-hairline/50 text-xs font-mono text-emerald-400">
+                    Outcome: {item.businessOutcome}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

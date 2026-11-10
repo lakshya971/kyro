@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import UiPreviewFrame from '../components/UiPreviewFrame';
 
 export default function Analytics() {
   // Active Interactive Console View Tab
@@ -145,6 +146,12 @@ export default function Analytics() {
   const [selectedDivision, setSelectedDivision] = useState('Commercial');
   const [selectedRegion, setSelectedRegion] = useState('APAC');
 
+  // Financial Performance State (Tab 4)
+  const [selectedFinancialKpi, setSelectedFinancialKpi] = useState('Revenue');
+
+  // Sales Pipeline & Deal Risk State (Tab 5)
+  const [selectedDealRegion, setSelectedDealRegion] = useState('All');
+
   // Interactive Metric Mode Switcher State
   const [activeMetricMode, setActiveMetricMode] = useState('revenue');
 
@@ -201,7 +208,9 @@ export default function Analytics() {
       tag: 'SYSTEM 01',
       icon: 'sync_alt',
       title: 'Data Ingestion & Automated Cleaning',
-      desc: 'Turnkey ELT/ETL pipelines, programmatic deduplication, automated anomaly detection, and unified zero-loss warehouse ingestion.',
+      desc: 'Turnkey ELT pipelines extracting raw orders, invoices, ad spend, and CRM logs into one structured warehouse with duplicate and error protection.',
+      sourcesUnified: 'Tally, Zoho Books, PostgreSQL, Razorpay, Shopify, Google Ads',
+      questionAnswered: 'How do we stop manual Excel exports and mismatched team reports?',
       tags: ['dbt Core', 'Apache Airflow', 'Kafka', 'Auto-Quarantine']
     },
     {
@@ -209,7 +218,9 @@ export default function Analytics() {
       tag: 'SYSTEM 02',
       icon: 'dashboard_customize',
       title: 'Interactive Power BI & Web Dashboards',
-      desc: 'Custom enterprise visualization interfaces featuring millisecond telemetry, contextual KPI alerts, and handheld mobile-first optimization.',
+      desc: 'Executive reporting interfaces displaying daily revenue, regional profits, AOV, and live SLA fulfillment across desktop and mobile.',
+      sourcesUnified: 'Power BI Service, DirectQuery SQL, Custom Web Portals',
+      questionAnswered: 'What happened in sales, gross profit, and unit margins yesterday or this hour?',
       tags: ['DAX Advanced Models', 'Embedded React Visuals', 'Live Telemetry']
     },
     {
@@ -217,32 +228,61 @@ export default function Analytics() {
       tag: 'SYSTEM 03',
       icon: 'trending_up',
       title: 'Sales & Revenue Trajectory Modeling',
-      desc: 'Granular cohort analysis, margin degradation identification, dynamic CAC:LTV tracking, and scenario forecasting models.',
+      desc: 'Granular cohort retention triangles, repeat purchase curves, CAC-to-LTV payback windows, and monthly actual vs budget variance models.',
+      sourcesUnified: 'Billing Ledgers, Subscription Logs & Acquisition Channels',
+      questionAnswered: 'Which customer cohorts churn fastest and which products drive real EBITDA?',
       tags: ['Cohort Retention Math', 'EBITDA Leak Tracking', 'Predictive LTV']
     },
     {
       id: '04',
       tag: 'SYSTEM 04',
       icon: 'route',
-      title: 'Customer Journey & Behaviour Analytics',
-      desc: 'Uncovering hidden conversion blockers, user drop-off friction, predictive churn signatures, and lifetime engagement mechanics.',
-      tags: ['Event Attribution', 'Early Churn Flags', 'Funnel Heatmaps']
+      title: 'Sales Pipeline & Customer Journey Analytics',
+      desc: 'Stage-by-stage deal conversion velocity, salesperson quota contributions, forecast risk scoring, and funnel drop-off diagnostics.',
+      sourcesUnified: 'CRM Opportunities, Call Logs, Checkout Events & Ads',
+      questionAnswered: 'Where are deals stalling in our pipeline and what revenue will realistically close?',
+      tags: ['Pipeline Velocity', 'Forecast Scoring', 'Funnel Heatmaps']
     },
     {
       id: '05',
       tag: 'SYSTEM 05',
       icon: 'precision_manufacturing',
-      title: 'Operational Performance Diagnostics',
-      desc: 'Supply-chain inventory turnover monitoring, fulfillment lag triage, and workforce output metrics matched directly against revenue burn.',
+      title: 'Operational & Margin Diagnostics',
+      desc: 'Warehouse inventory turnover monitoring, supplier fulfillment lag tracking, refund/return cost analysis, and branch-level unit economics.',
+      sourcesUnified: 'ERP Stock Logs, Courier Webhooks & Manufacturing Cost Sheets',
+      questionAnswered: 'Where is working capital trapped in slow stock or silent fulfillment delays?',
       tags: ['Inventory Velocity', 'Unit Cost Variance', 'Bottleneck Scans']
     },
     {
       id: '06',
       tag: 'SYSTEM 06',
       icon: 'military_tech',
-      title: 'Actionable Strategic Consultation',
-      desc: 'Translating complex statistical distributions into unhedged, decisive managerial moves for C-suite steering committees.',
+      title: 'Actionable Strategic BI Consultation',
+      desc: 'Monthly executive interpretation turning dashboard patterns into decisive pricing changes, budget reallocations, and retention plays.',
+      sourcesUnified: 'Executive Board Packets, Unit P&Ls & Strategic Roadmaps',
+      questionAnswered: 'Exactly what management decisions should we execute next Monday to lift margins?',
       tags: ['Executive Memos', '90-Day Priority Roadmaps', 'Founder Sprints']
+    }
+  ];
+
+  const businessClarityRoles = [
+    {
+      role: 'FOR FOUNDERS & CEOS',
+      question: 'Are we beating budget, growing cash margins, and retaining customers across regions?',
+      clarityDelivered: 'Single morning executive view combining Revenue vs Budget variance, division margins, and proactive churn warnings.',
+      sourcesConnected: 'Accounting, Sales, Bank Balance & Ads'
+    },
+    {
+      role: 'FOR CFOS & FINANCE TEAMS',
+      question: 'Why do commercial numbers look strong while EBITDA or APAC cash flow misses forecast?',
+      clarityDelivered: 'Exact bridge variance dissecting Actual vs Budget EBITDA, gross margin percentage shifts, and business unit deficits.',
+      sourcesConnected: 'Tally / Zoho / SAP, Invoices & Payroll'
+    },
+    {
+      role: 'FOR SALES & REVENUE HEADS',
+      question: 'Which rep stages or territories are stalling deals and skewing our quarterly forecast?',
+      clarityDelivered: 'Deal velocity per stage, weighted forecast accuracy, senior vs AE contributions, and live customer retention cohorts.',
+      sourcesConnected: 'CRM Pipelines, Quotes & Closed Orders'
     }
   ];
 
@@ -280,21 +320,63 @@ export default function Analytics() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col">
-        {/* Hero Section */}
+        {/* Hero Section — Two-Column Horizontal Split */}
         <section className="flex flex-col pt-10 sm:pt-16 pb-10 sm:pb-14">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
-              ENTERPRISE DATA INTELLIGENCE & ANALYTICS
-            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10">
+            {/* Left Side: Hero Content & CTAs */}
+            <div className="lg:col-span-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
+                  ENTERPRISE DATA INTELLIGENCE & ANALYTICS
+                </span>
+              </div>
+
+              <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.12] mb-5">
+                Data Analytics & Executive Intelligence Systems
+              </h1>
+
+              <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-7">
+                At <strong className="text-ink font-semibold">KYRO</strong>, we unite scattered spreadsheets, accounting software, ad channels, and ERP databases into live Power BI and custom executive dashboards—so leadership sees real profit, retention, and sales velocity in real time.
+              </p>
+
+              {/* Quick CTA Pills */}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
+                >
+                  Request Data Diagnostic
+                </Link>
+                <a
+                  href="#interactive-cockpit"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Inspect BI Dashboards</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+                <a
+                  href="#analytics-delivery-workflow"
+                  className="inline-flex items-center justify-center gap-1.5 h-11 px-5 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
+                >
+                  <span>Delivery Workflow</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side: Single Clean Deliverable Visual Preview */}
+            <div className="lg:col-span-6">
+              <UiPreviewFrame
+                src="/images/powerbi-sales-analytics.jpg"
+                alt="Power BI Executive Sales & Profit Analytics Dashboard Preview"
+                title="Client Deliverable Preview • Power BI Executive Sales & Profit Suite"
+                badge="BI Deliverable"
+                caption="Visual preview of the automated executive dashboard: live revenue KPIs, regional splits, customer segments, and profit margins."
+                metrics={['Power BI & SQL', 'DirectQuery Live', 'Single Truth']}
+                eager={true}
+              />
+            </div>
           </div>
-
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-ink font-normal tracking-tight leading-[1.12] mb-5 max-w-4xl">
-            Data Analytics & Executive Intelligence Systems
-          </h1>
-
-          <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-8 max-w-3xl">
-            At <strong className="text-ink font-semibold">KYRO</strong>, we engineer high-clarity telemetry cockpits that transform fragmented transaction silos, marketing metrics, and ERP records into definitive executive command. Institutional precision, zero vanity metrics, and sub-second decision velocity.
-          </p>
 
           {/* Operational Metrics Monoliths */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-canvas-card border border-hairline p-5 rounded-2xl shadow-sm">
@@ -330,30 +412,6 @@ export default function Analytics() {
                 Data Silos
               </span>
             </div>
-          </div>
-
-          {/* Quick CTA Pills */}
-          <div className="flex flex-wrap items-center gap-3 mt-8">
-            <a
-              href="#analytics-delivery-workflow"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-high border border-pill-border text-ink hover:bg-surface-bright font-mono text-xs transition-all shadow-sm"
-            >
-              <span>View Client Delivery Process Workflow</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <a
-              href="#interactive-cockpit"
-              className="inline-flex items-center justify-center gap-1.5 h-11 px-6 rounded-full bg-surface-container-low border border-hairline text-body-mid hover:text-ink font-mono text-xs transition-all shadow-sm"
-            >
-              <span>Interact With Live BI Telemetry</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_downward</span>
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-primary text-on-primary hover:bg-primary-fixed font-mono text-xs font-semibold transition-all shadow-md"
-            >
-              Request Data Diagnostic
-            </Link>
           </div>
         </section>
 
@@ -583,7 +641,7 @@ export default function Analytics() {
               }`}
             >
               <span className="text-sunset-orange font-bold">01</span>
-              <span>Omnichannel Sales & Order Cockpit</span>
+              <span>Omnichannel Sales & Orders</span>
             </button>
 
             <button
@@ -595,7 +653,7 @@ export default function Analytics() {
               }`}
             >
               <span className="text-emerald-400 font-bold">02</span>
-              <span>Customer Cohort Retention & LTV Matrix</span>
+              <span>Cohort Retention & LTV</span>
             </button>
 
             <button
@@ -607,7 +665,31 @@ export default function Analytics() {
               }`}
             >
               <span className="text-breeze-blue font-bold">03</span>
-              <span>C-Suite Variance & Revenue Trajectory</span>
+              <span>Executive Variance BI</span>
+            </button>
+
+            <button
+              onClick={() => setActiveConsoleTab('financial')}
+              className={`px-4 py-2.5 rounded-xl font-mono text-xs whitespace-nowrap transition-all flex items-center gap-2 ${
+                activeConsoleTab === 'financial'
+                  ? 'bg-surface-container-high border border-pill-border text-ink font-bold shadow-md'
+                  : 'bg-surface-container-low border border-hairline text-body-mid hover:text-ink hover:bg-surface-container'
+              }`}
+            >
+              <span className="text-sunset-orange font-bold">04</span>
+              <span>Financial P&L & EBITDA</span>
+            </button>
+
+            <button
+              onClick={() => setActiveConsoleTab('pipeline')}
+              className={`px-4 py-2.5 rounded-xl font-mono text-xs whitespace-nowrap transition-all flex items-center gap-2 ${
+                activeConsoleTab === 'pipeline'
+                  ? 'bg-surface-container-high border border-pill-border text-ink font-bold shadow-md'
+                  : 'bg-surface-container-low border border-hairline text-body-mid hover:text-ink hover:bg-surface-container'
+              }`}
+            >
+              <span className="text-purple-400 font-bold">05</span>
+              <span>Deal Pipeline & Risk</span>
             </button>
           </div>
 
@@ -635,6 +717,34 @@ export default function Analytics() {
                     <span className="text-body-mid text-[11px]">
                       Last refresh: 10:30:45 AM (Real-time)
                     </span>
+                  </div>
+                </div>
+
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-sunset-orange uppercase font-bold tracking-wider">
+                      RETAIL, E-COMMERCE & B2B SALES CLARITY
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Monitor Daily Gross Sales, Net Profit Margins & Live Fulfillment
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Stop waiting until month-end to find out if ad spend eroded unit profit. This Power BI model tracks total sales, average order value, regional demand, top accounts, and live fulfillment statuses in one view.
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-body-text pt-1">
+                      <li>• Breaks revenue cleanly across Technology, Office Supplies & Furniture</li>
+                      <li>• Compares Online vs Retail vs Distributor channel profitability live</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/powerbi-sales-analytics.jpg"
+                      alt="Power BI Sales Analytics Deliverable Dashboard"
+                      title="Power BI Sales Analytics • Revenue, Margin & Geo Telemetry"
+                      badge="Sales BI Spec"
+                      caption="Full Power BI sales command built over live relational order tables."
+                    />
                   </div>
                 </div>
 
@@ -903,6 +1013,34 @@ export default function Analytics() {
             {/* TAB 2: CUSTOMER COHORT RETENTION & LTV MATRIX */}
             {activeConsoleTab === 'cohort' && (
               <div className="flex flex-col gap-8">
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-emerald-400 uppercase font-bold tracking-wider">
+                      RETENTION & REPEAT PURCHASE CLARITY
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Discover Exactly When Customers Drop Off & How to Recover Lifetime Value
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Acquisition costs rise every quarter; real profit lives in repeat retention. This cohort dashboard tracks every monthly customer batch from Month 0 to Month 11 alongside Average Lifetime Revenue curves.
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-body-text pt-1">
+                      <li>• Pinpoints exact drop-off months (e.g., Month 1 to Month 3) for targeted offers</li>
+                      <li>• Reveals true LTV payback speed per marketing acquisition cohort</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/cohort-retention-analytics.jpg"
+                      alt="Customer Retention Cohort Triangle & Lifetime Revenue Analytics"
+                      title="Cohort Retention Analytics • Heatmap Matrix & LTV Curve"
+                      badge="Cohort UI Spec"
+                      caption="Full cohort diagnostic view built to expose customer churn decay and repeat purchase strength."
+                    />
+                  </div>
+                </div>
+
                 {/* Cohort Header & Macro KPIs */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="p-5 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between shadow-sm">
@@ -1008,6 +1146,34 @@ export default function Analytics() {
             {/* TAB 3: C-SUITE VARIANCE & REVENUE TRAJECTORY */}
             {activeConsoleTab === 'variance' && (
               <div className="flex flex-col gap-8">
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-breeze-blue uppercase font-bold tracking-wider">
+                      BOARDROOM VARIANCE & STRATEGY
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Spot Budget Misses & Growth Engines Across Divisions Immediately
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Executive leadership needs answers, not raw tables. This cockpit compares Actual Revenue, EBITDA, and Gross Margins against budget, pairing variance bars with written executive commentary.
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-body-text pt-1">
+                      <li>• Highlights exact variance drivers by Commercial, Tech & Ops divisions</li>
+                      <li>• Pinpoints regional concentration risks across AMER, EMEA & APAC</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/executive-summary-bi.jpg"
+                      alt="Executive Summary Group Performance & Variance Dashboard"
+                      title="Executive Summary Cockpit • Actual vs Budget Variance"
+                      badge="Executive BI"
+                      caption="High-clarity C-suite boardroom view uniting revenue, EBITDA, headcount & risk."
+                    />
+                  </div>
+                </div>
+
                 {/* Executive Cockpit Header & Division/Region Selectors */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-surface-container-low border border-hairline">
                   <div className="flex flex-col gap-1">
@@ -1211,6 +1377,256 @@ export default function Analytics() {
                 </div>
               </div>
             )}
+
+            {/* TAB 4: FINANCIAL PERFORMANCE, EBITDA & GROSS MARGIN */}
+            {activeConsoleTab === 'financial' && (
+              <div className="flex flex-col gap-8">
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-sunset-orange uppercase font-bold tracking-wider">
+                      CFO FINANCIAL & MARGIN CLARITY
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Track Actual vs Budget Revenue, EBITDA & Business Unit Profitability
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Built for founders and finance heads to spot unit margin pressure early. Compare monthly actual performance against budget across every division and geography without merging CSVs.
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-body-text pt-1">
+                      <li>• Switch KPIs seamlessly between Revenue, EBITDA & Gross Margin %</li>
+                      <li>• Highlights losing business units (+13.0% Platform vs -8.9% Marketing variance)</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/financial-performance-bi.jpg"
+                      alt="Financial Performance Revenue EBITDA & Gross Margin Dashboard"
+                      title="Financial Performance BI • Actual vs Budget & Business Unit Variance"
+                      badge="Financial P&L"
+                      caption="Monthly actual-vs-budget performance view for finance controllers and board reviews."
+                    />
+                  </div>
+                </div>
+
+                {/* Interactive KPI Mode Bar */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-hairline">
+                  <div className="flex items-center gap-3">
+                    <span className="font-sans text-sm font-semibold text-ink">
+                      Interactive P&L Variance Monitor
+                    </span>
+                    <span className="font-mono text-[11px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
+                      100% Budget Achieved
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-surface-container p-1 rounded-xl border border-hairline">
+                    {['Revenue', 'EBITDA', 'Gross Margin'].map((kpi) => (
+                      <button
+                        key={kpi}
+                        onClick={() => setSelectedFinancialKpi(kpi)}
+                        className={`px-3 py-1 rounded-lg font-mono text-xs transition-colors ${
+                          selectedFinancialKpi === kpi
+                            ? 'bg-primary text-on-primary font-bold shadow-sm'
+                            : 'text-body-mid hover:text-ink'
+                        }`}
+                      >
+                        {kpi}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Financial Summary Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-5 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col gap-1">
+                    <span className="font-mono text-[11px] text-body-mid uppercase font-semibold">
+                      {selectedFinancialKpi === 'Revenue' ? 'ACTUAL REVENUE (YTD)' : selectedFinancialKpi === 'EBITDA' ? 'ACTUAL EBITDA (YTD)' : 'BLENDED GROSS MARGIN'}
+                    </span>
+                    <span className="font-sans text-3xl font-bold text-ink">
+                      {selectedFinancialKpi === 'Revenue' ? '$10.21B' : selectedFinancialKpi === 'EBITDA' ? '$2.48B' : '54.2%'}
+                    </span>
+                    <span className="font-mono text-xs text-emerald-400">
+                      {selectedFinancialKpi === 'Revenue' ? '+$117.8M (+1.17% vs Budget)' : selectedFinancialKpi === 'EBITDA' ? '+$48.4M (+1.98% vs Budget)' : '+1.4pp ahead of forecast'}
+                    </span>
+                  </div>
+                  <div className="p-5 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col gap-1">
+                    <span className="font-mono text-[11px] text-body-mid uppercase font-semibold">
+                      TOP PERFORMING UNIT
+                    </span>
+                    <span className="font-sans text-3xl font-bold text-breeze-blue">Platform</span>
+                    <span className="font-mono text-xs text-emerald-400">+13.0% over budget plan</span>
+                  </div>
+                  <div className="p-5 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col gap-1">
+                    <span className="font-mono text-[11px] text-body-mid uppercase font-semibold">
+                      PRIMARY FOCUS ALERT
+                    </span>
+                    <span className="font-sans text-3xl font-bold text-sunset-orange">APAC Region</span>
+                    <span className="font-mono text-xs text-rose-400">-14.4% budget variance</span>
+                  </div>
+                </div>
+
+                {/* Business Unit Variance Breakdown */}
+                <div className="p-6 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col gap-4">
+                  <div className="flex items-center justify-between border-b border-hairline/60 pb-3">
+                    <span className="font-sans text-sm font-semibold text-ink">
+                      Actual vs Budget Delta by Business Unit ({selectedFinancialKpi})
+                    </span>
+                    <span className="font-mono text-xs text-body-mid">Annual Performance Split</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs">
+                    {[
+                      { unit: 'Platform Systems', delta: '+13.0%', positive: true, width: '82%' },
+                      { unit: 'Data Products', delta: '+11.7%', positive: true, width: '74%' },
+                      { unit: 'Delivery Services', delta: '+2.2%', positive: true, width: '35%' },
+                      { unit: 'Customer Success', delta: '+1.9%', positive: true, width: '30%' },
+                      { unit: 'Sales Division', delta: '-8.1%', positive: false, width: '48%' },
+                      { unit: 'Marketing Spend', delta: '-8.9%', positive: false, width: '54%' }
+                    ].map((row) => (
+                      <div key={row.unit} className="p-3.5 rounded-xl bg-surface-container border border-hairline flex flex-col gap-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-ink font-semibold">{row.unit}</span>
+                          <span className={row.positive ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
+                            {row.delta}
+                          </span>
+                        </div>
+                        <div className="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+                          <div
+                            className={`h-full rounded-full ${row.positive ? 'bg-breeze-blue' : 'bg-rose-500'}`}
+                            style={{ width: row.width }}
+                          ></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 5: SALES PIPELINE & DEAL RISK ANALYTICS */}
+            {activeConsoleTab === 'pipeline' && (
+              <div className="flex flex-col gap-8">
+                {/* Single Image Visual Clarity Split */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
+                  <div className="lg:col-span-5 flex flex-col gap-3">
+                    <span className="font-mono text-[11px] text-purple-400 uppercase font-bold tracking-wider">
+                      REVENUE FORECAST & DEAL VELOCITY
+                    </span>
+                    <h3 className="font-sans text-xl font-semibold text-ink">
+                      Audit Open Deals, Cycle Length & Forecast Accuracy in Real Time
+                    </h3>
+                    <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
+                      Never get blindsided by optimistic sales forecasts again. This BI model measures every stage from Lead In through Closing, isolates slow sales cycles, and tracks win/loss velocity by role and region.
+                    </p>
+                    <ul className="space-y-1.5 text-xs text-body-text pt-1">
+                      <li>• Exposes weighted forecast value vs optimistic total pipeline</li>
+                      <li>• Breaks contribution across Account Executives, Enterprise AE & CS</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <UiPreviewFrame
+                      src="/images/sales-pipeline-analytics.jpg"
+                      alt="Sales Pipeline & Deal Risk Analytics Preview"
+                      title="Deal Pipeline & Risk Cockpit • Stage Velocity & Geo Contribution"
+                      badge="Pipeline BI"
+                      caption="Enterprise sales analytics mapping open deals, stage efficiency & regional deal density."
+                    />
+                  </div>
+                </div>
+
+                {/* Regional Pipeline Filter Bar */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-hairline">
+                  <div className="flex flex-col">
+                    <span className="font-sans text-sm font-semibold text-ink">
+                      Pipeline Velocity & Weighted Forecast Explorer
+                    </span>
+                    <span className="font-mono text-[11px] text-body-mid">
+                      Active Deals: 6,769 • Avg Cycle: 137.7 Days • Won: 2,999
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5 bg-surface-container p-1 rounded-xl border border-hairline">
+                    {['All', 'Europe', 'North America', 'Asia-Pacific', 'Latin America'].map((reg) => (
+                      <button
+                        key={reg}
+                        onClick={() => setSelectedDealRegion(reg)}
+                        className={`px-3 py-1 rounded-lg font-mono text-xs transition-colors ${
+                          selectedDealRegion === reg
+                            ? 'bg-purple-500/20 text-purple-300 border border-purple-400/40 font-bold'
+                            : 'text-body-mid hover:text-ink'
+                        }`}
+                      >
+                        {reg}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Pipeline Stage Funnel & Region KPI */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="lg:col-span-2 p-6 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col gap-4">
+                    <div className="flex items-center justify-between pb-2 border-b border-hairline/60">
+                      <span className="font-sans text-sm font-semibold text-ink">
+                        Pipeline Stage Distribution ({selectedDealRegion})
+                      </span>
+                      <span className="font-mono text-xs text-purple-300 font-bold">Total: €1.02bn</span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+                      {[
+                        { stage: '01. Lead In', val: '€289.25M', share: '28%' },
+                        { stage: '02. Qualified', val: '€230.11M', share: '23%' },
+                        { stage: '03. Proposal', val: '€204.34M', share: '20%' },
+                        { stage: '04. Negotiation', val: '€173.38M', share: '17%' },
+                        { stage: '05. Contracting', val: '€82.83M', share: '8%' },
+                        { stage: '06. Closing', val: '€42.79M', share: '4%' }
+                      ].map((st) => (
+                        <div key={st.stage} className="p-3.5 rounded-xl bg-surface-container border border-hairline flex flex-col gap-1">
+                          <span className="text-[11px] text-body-mid">{st.stage}</span>
+                          <span className="font-sans text-lg font-bold text-ink">{st.val}</span>
+                          <span className="text-[10px] text-purple-300">{st.share} of pipeline</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="p-6 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between gap-4 font-mono text-xs">
+                    <div>
+                      <span className="text-[11px] text-body-mid uppercase font-semibold block mb-3">
+                        Contribution by Sales Role
+                      </span>
+                      <div className="space-y-3">
+                        <div className="flex justify-between">
+                          <span className="text-ink">Account Executive</span>
+                          <span className="text-purple-300 font-bold">47.78%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-ink">Enterprise AE</span>
+                          <span className="text-breeze-blue font-bold">28.11%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-ink">Customer Success</span>
+                          <span className="text-emerald-400 font-bold">10.26%</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-body-mid">Partner & Others</span>
+                          <span className="text-body-mid font-bold">13.85%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-surface-container border border-hairline">
+                      <span className="text-[10px] text-sunset-orange uppercase font-bold block">
+                        WEIGHTED FORECAST VALUE
+                      </span>
+                      <span className="font-sans text-xl font-bold text-ink block mt-0.5">
+                        €429.08M
+                      </span>
+                      <span className="text-[11px] text-body-mid">
+                        Regional Share ({selectedDealRegion}): {selectedDealRegion === 'Europe' ? '56.47%' : selectedDealRegion === 'Asia-Pacific' ? '17.06%' : selectedDealRegion === 'North America' ? '16.48%' : selectedDealRegion === 'Latin America' ? '9.99%' : '100% Global'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -1332,17 +1748,17 @@ export default function Analytics() {
         <section className="py-10 sm:py-16">
           <div className="flex flex-col mb-8">
             <span className="font-mono text-xs uppercase text-sunset-orange tracking-widest font-semibold mb-2">
-              INTELLIGENCE ARCHITECTURE
+              INTELLIGENCE ARCHITECTURE & BUSINESS CLARITY
             </span>
             <h2 className="font-sans text-2xl sm:text-4xl text-ink font-normal tracking-tight">
               Six Enterprise Telemetry Disciplines
             </h2>
-            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-xl">
-              End-to-end data pipelines turning fragmented business activity into synchronized executive command.
+            <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-2xl">
+              End-to-end data engineering turning scattered business tools into synchronized executive command—written clearly for founders, finance controllers, and operational leaders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
             {systems.map((sys) => (
               <div
                 key={sys.id}
@@ -1363,6 +1779,24 @@ export default function Analytics() {
                   <p className="text-xs sm:text-sm text-body-text leading-relaxed mb-4">
                     {sys.desc}
                   </p>
+                  <div className="space-y-2 p-3.5 rounded-xl bg-surface-container-lowest border border-hairline/70 mb-4 text-xs">
+                    <div>
+                      <span className="font-mono text-[10px] text-breeze-blue uppercase font-semibold block">
+                        SYSTEMS CONNECTED
+                      </span>
+                      <span className="text-ink leading-snug block mt-0.5">
+                        {sys.sourcesUnified}
+                      </span>
+                    </div>
+                    <div className="pt-2 border-t border-hairline/40">
+                      <span className="font-mono text-[10px] text-sunset-orange uppercase font-semibold block">
+                        BUSINESS QUESTION ANSWERED
+                      </span>
+                      <span className="text-body-mid leading-snug block mt-0.5">
+                        {sys.questionAnswered}
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className="pt-3 border-t border-hairline/60 flex flex-wrap gap-1.5">
                   {sys.tags.map((t, tIdx) => (
@@ -1376,6 +1810,47 @@ export default function Analytics() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Executive Stakeholder Clarity Breakdown */}
+          <div className="bg-surface-container-lowest border border-hairline rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-md">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-hairline/60">
+              <div>
+                <span className="font-mono text-xs text-breeze-blue uppercase tracking-wider font-semibold">
+                  STAKEHOLDER CLARITY MATRIX
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl text-ink font-medium mt-1">
+                  Exact Business Clarity Unlocked Across Your Leadership Team
+                </h3>
+              </div>
+              <span className="font-mono text-[11px] text-emerald-400 bg-surface-container px-3 py-1 rounded-full border border-hairline shrink-0">
+                Single Source of Truth • Zero Conflicting Spreadsheets
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {businessClarityRoles.map((item) => (
+                <div
+                  key={item.role}
+                  className="p-5 rounded-2xl bg-canvas-card border border-hairline flex flex-col justify-between gap-3"
+                >
+                  <div className="flex flex-col gap-2">
+                    <span className="font-mono text-[11px] text-sunset-orange font-bold uppercase">
+                      {item.role}
+                    </span>
+                    <p className="text-xs font-medium text-ink leading-relaxed">
+                      "{item.question}"
+                    </p>
+                    <p className="text-xs text-body-mid leading-relaxed">
+                      {item.clarityDelivered}
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-hairline/50 text-[11px] font-mono text-breeze-blue">
+                    Sources: {item.sourcesConnected}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

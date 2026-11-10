@@ -10,7 +10,8 @@ export default function UiPreviewFrame({
   title,
   badge = 'Live System Preview',
   caption,
-  metrics = []
+  metrics = [],
+  eager = false
 }) {
   return (
     <div className="w-full rounded-2xl bg-canvas-card border border-hairline shadow-2xl overflow-hidden flex flex-col">
@@ -37,7 +38,7 @@ export default function UiPreviewFrame({
           src={src}
           alt={alt}
           className="w-full h-auto rounded-xl border border-hairline/70 shadow-inner block object-cover"
-          loading="lazy"
+          loading={eager ? 'eager' : 'lazy'}
         />
       </div>
 
