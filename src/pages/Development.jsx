@@ -22,9 +22,9 @@ export default function Development() {
       latency: '0ms',
       inputData: 'Business operational friction, desired feature scope, concurrency targets, existing database schemas or legacy stack.',
       kyroProcess: '48-Hour Technical Reconnaissance: We decompose requirements into architectural constraints, data latency budgets, and security boundaries.',
-      businessOutput: 'Formal Architectural RFC (Request for Comments) Document with milestone breakdown, fixed flat fee, and deterministic delivery SLA.',
-      sla: '48 Hours to Formal RFC',
-      guarantee: 'Fixed price. Zero scope creep surprises.'
+      businessOutput: 'A written scope with milestones, assumptions, and an estimated project fee.',
+      sla: 'Initial scope discussion',
+      guarantee: 'Scope changes are discussed before extra work.'
     },
     {
       id: 'step-02',
@@ -37,10 +37,10 @@ export default function Development() {
       status: 'SCHEMAS VALIDATED',
       latency: '14ms',
       inputData: 'RFC approval and brand asset / design token preferences.',
-      kyroProcess: 'We design typed database schemas (PostgreSQL / ClickHouse), formal OpenAPI / GraphQL contract schemas, and an interactive frontend UI component rig.',
+      kyroProcess: 'We design practical database schemas, simple API contracts, and an interactive frontend prototype.',
       businessOutput: 'Clickable interactive prototype in code + typed contract specifications ensuring frontend and backend teams have zero ambiguity.',
-      sla: '5 Business Days',
-      guarantee: '100% accessible, WCAG AA conformant, mobile-first design.'
+      sla: 'Early project milestone',
+      guarantee: 'Mobile-first implementation with accessibility considered in scope.'
     },
     {
       id: 'step-03',
@@ -55,8 +55,8 @@ export default function Development() {
       inputData: 'Milestone sign-off on prototype and contract schemas.',
       kyroProcess: 'Clean-code sprint execution: Lightweight React/Next.js interface development, high-throughput backend services, Redis caching, and automated CI/CD unit testing.',
       businessOutput: 'Private staging sandbox deployment updated with every git push, allowing client stakeholders to test real workflows as they are built.',
-      sla: 'Weekly Milestone Deployments',
-      guarantee: '95%+ automated test coverage across all critical paths.'
+      sla: 'Regular project previews',
+      guarantee: 'Important flows are tested before handover.'
     },
     {
       id: 'step-04',
@@ -64,15 +64,15 @@ export default function Development() {
       type: 'AUDIT & VERIFY',
       badgeColor: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10',
       icon: 'verified_user',
-      title: 'Stress Benchmark & Penetration Audit',
-      subtitle: 'Load testing to 50k req/s & OWASP security scan',
+      title: 'Review & Quality Checks',
+      subtitle: 'Reviewing important flows, errors, and security basics',
       status: 'P99 UNDER 18MS PASS',
       latency: '18ms',
       inputData: 'Staged production release candidate.',
       kyroProcess: 'Simulating peak traffic spikes (up to 50,000 concurrent req/sec), memory leak profiling, database index query analysis, and rigorous OWASP security auditing.',
-      businessOutput: 'Comprehensive Cryptographic Audit Certificate certifying sub-15ms database query times and 99+ Core Web Vitals score.',
-      sla: '72 Hours Final Audit Window',
-      guarantee: 'Zero unaddressed high or critical security vulnerabilities.'
+      businessOutput: 'A pre-launch review of the agreed features, with known limitations documented.',
+      sla: 'Before handover',
+      guarantee: 'Known issues are documented instead of hidden.'
     },
     {
       id: 'step-05',
@@ -86,20 +86,20 @@ export default function Development() {
       latency: '11ms',
       inputData: 'Client acceptance and target production cloud credentials (AWS / GCP / Bare Metal).',
       kyroProcess: 'Zero-downtime rolling deployment, SSL / DNS routing, production database migration, and complete cryptographic repo handover.',
-      businessOutput: '100% Intellectual Property ownership assigned to client, production Docker container images, full clean Git repo history, OpenAPI docs, and 90-Day Full Code Warranty.',
-      sla: 'Immediate Launch on Approval',
-      guarantee: '90-Day Bug-Free Warranty & Free Critical Hotfix Support.'
+      businessOutput: 'Project files, setup notes, and a walkthrough so you can run and maintain the delivered work.',
+      sla: 'Handover after acceptance',
+      guarantee: 'A limited post-launch bug-fix window is agreed per project.'
     }
   ];
 
   // ERP Interactive Simulator State
   const [erpInvoiceFilter, setErpInvoiceFilter] = useState('all');
   const erpInvoices = [
-    { id: 'INV-2024-001', customer: 'Apex Industrial Corp', date: 'Jul 24, 2024', due: 'Aug 23, 2024', amount: '$45,000.00', status: 'Paid' },
-    { id: 'INV-2024-002', customer: 'Vanguard Systems', date: 'Jul 22, 2024', due: 'Aug 21, 2024', amount: '$28,500.00', status: 'Pending' },
-    { id: 'INV-2024-003', customer: 'Helios Logistics', date: 'Jul 21, 2024', due: 'Aug 20, 2024', amount: '$18,200.00', status: 'Overdue' },
-    { id: 'INV-2024-004', customer: 'Starlight Medical', date: 'Jul 19, 2024', due: 'Aug 18, 2024', amount: '$62,000.00', status: 'Paid' },
-    { id: 'INV-2024-005', customer: 'Boreal Dynamics', date: 'Jul 18, 2024', due: 'Aug 17, 2024', amount: '$14,000.00', status: 'Pending' }
+    { id: 'INV-001', customer: 'Lucknow Fabrics (sample)', date: 'Jul 24, 2024', due: 'Aug 23, 2024', amount: '₹45,000', status: 'Paid' },
+    { id: 'INV-002', customer: 'Hazratganj Clinic (sample)', date: 'Jul 22, 2024', due: 'Aug 21, 2024', amount: '₹28,500', status: 'Pending' },
+    { id: 'INV-003', customer: 'Gomti Coaching (sample)', date: 'Jul 21, 2024', due: 'Aug 20, 2024', amount: '₹18,200', status: 'Overdue' },
+    { id: 'INV-004', customer: 'Aminabad Boutique (sample)', date: 'Jul 19, 2024', due: 'Aug 18, 2024', amount: '₹62,000', status: 'Paid' },
+    { id: 'INV-005', customer: 'Indira Nagar Foods (sample)', date: 'Jul 18, 2024', due: 'Aug 17, 2024', amount: '₹14,000', status: 'Pending' }
   ];
 
   const filteredInvoices = erpInvoices.filter((inv) =>
@@ -107,11 +107,11 @@ export default function Development() {
   );
 
   const erpInventory = [
-    { code: 'SKU-8041', name: 'Hydraulic Actuator Unit', category: 'Heavy Machinery', onHand: 520, available: 480, reorder: 100, status: 'In Stock' },
-    { code: 'SKU-8042', name: 'Micro-Controller V2 PCB', category: 'Electronics', onHand: 320, available: 280, reorder: 100, status: 'In Stock' },
-    { code: 'SKU-8043', name: 'Titanium Grade-5 Rods', category: 'Metallurgy', onHand: 150, available: 120, reorder: 50, status: 'Low Stock' },
-    { code: 'SKU-8044', name: 'Carbon Fiber Pre-Preg', category: 'Composites', onHand: 80, available: 70, reorder: 30, status: 'Low Stock' },
-    { code: 'SKU-8045', name: 'Precision Ceramic Bearing', category: 'Mechanical', onHand: 60, available: 40, reorder: 20, status: 'Reorder' }
+    { code: 'SKU-001', name: 'Cotton kurta (sample)', category: 'Clothing', onHand: 520, available: 480, reorder: 100, status: 'In Stock' },
+    { code: 'SKU-002', name: 'Clinic consultation (sample)', category: 'Services', onHand: 320, available: 280, reorder: 100, status: 'In Stock' },
+    { code: 'SKU-003', name: 'Maths batch seat (sample)', category: 'Education', onHand: 150, available: 120, reorder: 50, status: 'Low Stock' },
+    { code: 'SKU-004', name: 'Printed dupatta (sample)', category: 'Clothing', onHand: 80, available: 70, reorder: 30, status: 'Low Stock' },
+    { code: 'SKU-005', name: 'Annual check-up slot (sample)', category: 'Services', onHand: 60, available: 40, reorder: 20, status: 'Reorder' }
   ];
 
   // CRM Interactive Simulator State
@@ -153,8 +153,8 @@ export default function Development() {
         'Mission-critical enterprise software built for manufacturing, distribution, and commercial firms. Unifies financial accounting, real-time inventory control, invoice lifecycle state machines, and purchasing pipelines into a single high-throughput cockpit.',
       metrics: [
         { label: 'Core Modules', val: '12+', sub: 'Finance, Banking, Sales, Inventory, HR' },
-        { label: 'Query Latency', val: 'Under 15ms', sub: 'Indexed PostgreSQL + ClickHouse' },
-        { label: 'ACID Compliance', val: '100%', sub: 'Zero ledger divergence / Strict locking' },
+        { label: 'Query Latency', val: 'Measured per project', sub: 'Checked against the agreed data volume' },
+        { label: 'Data Checks', val: 'Scope-based', sub: 'Important flows reviewed before handover' },
         { label: 'Security Model', val: 'RBAC', sub: 'Role-based access + full audit trail' }
       ],
       features: [
@@ -175,7 +175,7 @@ export default function Development() {
           desc: 'Built on clean Go/Node microservices with typed GraphQL/REST APIs ready for external CRM, bank feed, and ERP integrations.'
         }
       ],
-      stack: ['React 18', 'TypeScript', 'Node.js / Go', 'PostgreSQL', 'Redis', 'Docker', 'ClickHouse']
+      stack: ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Docker']
     },
     crm: {
       id: 'crm',
@@ -225,7 +225,7 @@ export default function Development() {
       idealFor: 'D2C Brands, B2B Companies & High-Growth Firms',
       painSolved: 'Eliminates slow 5s+ WordPress/Wix pages that waste 40–60% of paid marketing traffic.',
       timeline: '5–14 Days Delivery',
-      deliverable: 'Core Web Vitals 99+ • Sub-200ms TTFB Global Edge'
+      deliverable: 'Responsive build • Basic SEO • Performance checked in the agreed scope'
     },
     {
       id: '01.02',
@@ -243,7 +243,7 @@ export default function Development() {
       tag: '01.03 • INTEGRATIONS',
       icon: 'api',
       title: 'Business API Bridges & Payment Webhooks',
-      desc: 'Automated two-way connections syncing your website or ERP with Tally, Razorpay/Stripe, Shiprocket, WhatsApp Business notifications, and GST tax engines.',
+      desc: 'Automated connections between your website, spreadsheets, billing tools, shipping tools, and WhatsApp notifications.',
       idealFor: 'Businesses running disconnected billing, shipping & CRM apps',
       painSolved: 'Eliminates manual double-entry between finance, warehouse, and customer teams.',
       timeline: '5–10 Days Integration Window',
@@ -258,7 +258,7 @@ export default function Development() {
       idealFor: 'Organizations requiring audit compliance & complete IP security',
       painSolved: 'Removes single-point-of-failure outages and protects confidential company records.',
       timeline: 'Continuous Zero-Downtime Pipeline',
-      deliverable: '99.98% Service Uptime • 100% Client IP Assignment'
+      deliverable: 'Deployment notes • Backups • Client-owned project files'
     }
   ];
 
@@ -267,8 +267,8 @@ export default function Development() {
       track: 'TRACK 01',
       title: 'Business Websites & E-Commerce Engines',
       bottleneck: 'Slow template websites hurt Google SEO rankings, lose mobile shoppers, and require recurring paid plugins.',
-      whatYouGet: 'Custom responsive UI built in React & Tailwind CSS, interactive product/quote flows, SEO schema, CRM lead webhooks, and sub-second load speeds.',
-      businessOutcome: '+35% to +60% higher mobile inquiry/checkout conversion with zero plugin license fees.'
+      whatYouGet: 'Custom responsive UI built in React & Tailwind CSS, interactive product/quote flows, SEO basics, and CRM lead webhooks.',
+      businessOutcome: 'A clearer mobile experience with fewer template dependencies.'
     },
     {
       track: 'TRACK 02',
@@ -288,7 +288,7 @@ export default function Development() {
       track: 'TRACK 04',
       title: 'Legacy Software Modernization & Sync',
       bottleneck: 'Aging desktop software or siloed ERPs force staff to manually export CSVs into accounting, WhatsApp, and courier portals.',
-      whatYouGet: 'Modern cloud web layers and fault-tolerant API connectors bridging GST/Tally billing, courier tracking, and WhatsApp order status updates automatically.',
+      whatYouGet: 'Practical API connectors bridging billing, courier tracking, and WhatsApp order updates where the required access is available.',
       businessOutcome: 'Zero manual copy-paste operations and instant live status updates for management & clients.'
     }
   ];
@@ -329,7 +329,7 @@ export default function Development() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-7">
-                At <strong className="text-ink font-semibold">KYRO</strong>, we build fast business websites, custom ERPs, CRM systems, and client portals tailored to your workflows—with full source-code ownership, zero recurring SaaS seat taxes, and sub-second performance.
+                At <strong className="text-ink font-semibold">KYRO</strong>, I build business websites, internal tools, CRM systems, and client portals around your workflow—with project files and a clear handover.
               </p>
 
               {/* Quick Nav Anchors */}
@@ -362,10 +362,10 @@ export default function Development() {
               <UiPreviewFrame
                 src="/images/kyro-development-hero.png"
                 alt="KYRO AI-powered business automation website design"
-                title="Client Deliverable Preview • AI-Powered Business Automation"
-                badge="Digital Systems"
-                caption="Visual preview of a high-converting, AI-powered business website engineered to automate workflows and scale operations."
-                metrics={['100% Owned IP', 'Role-Based Access', 'ACID Ledger']}
+                title="Sample Client Deliverable Preview"
+                badge="SAMPLE DEMO"
+                caption="Illustrative interface showing the kind of small-business software KYRO can build."
+                metrics={['Clear scope', 'Project handover', 'Sample data']}
                 eager={true}
               />
             </div>
@@ -375,15 +375,15 @@ export default function Development() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-canvas-card border border-hairline p-5 rounded-2xl shadow-sm">
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-ink font-normal tracking-tight">
-                99+
+                Scope-based
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
-                Lighthouse Score
+                Performance checks
               </span>
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-sunset-orange font-normal tracking-tight">
-                Under 15ms
+                Measured per project
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
                 DB Query Execution
@@ -391,18 +391,18 @@ export default function Development() {
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-breeze-blue font-normal tracking-tight">
-                0%
+                Documented
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
-                CMS / Plugin Bloat
+                Project decisions
               </span>
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-ink font-normal tracking-tight">
-                90 Days
+                Agreed
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
-                Full Code Warranty
+                Post-launch support
               </span>
             </div>
           </div>
@@ -519,7 +519,7 @@ export default function Development() {
                     {currentDeliveryNode.stage} — {currentDeliveryNode.title}
                   </span>
                   <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
-                    SLA: {currentDeliveryNode.sla}
+                    TIMELINE: {currentDeliveryNode.sla}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -581,7 +581,7 @@ export default function Development() {
               {/* Bottom Guarantee Banner */}
               <div className="p-3 bg-surface-container rounded-xl flex items-center justify-between text-xs font-mono">
                 <span className="text-body-mid">
-                  DELIVERY COMMITMENT: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
+                  DELIVERY NOTE: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
                 </span>
                 <Link
                   to="/contact"
@@ -684,7 +684,7 @@ export default function Development() {
                     <ul className="space-y-2 text-xs text-body-text pt-1">
                       <li className="flex items-start gap-2">
                         <span className="material-symbols-outlined text-sunset-orange text-[16px] shrink-0">check_circle</span>
-                        <span>Automated invoicing status tracking (Paid, Pending, Overdue) & GST ledger sync</span>
+                        <span>Automated invoicing status tracking (Paid, Pending, Overdue) and billing exports</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="material-symbols-outlined text-sunset-orange text-[16px] shrink-0">check_circle</span>
@@ -701,8 +701,8 @@ export default function Development() {
                       src="/images/erp-enterprise-software.jpg"
                       alt="Enterprise ERP Operational Interface"
                       title="Enterprise ERP Suite • Finance, Banking & Inventory Control"
-                      badge="ERP UI Spec"
-                      caption="Full operational control plane designed for multi-branch operations."
+                      badge="SAMPLE DEMO DATA"
+                      caption="Illustrative dashboard for a small Indian business. This is not a client account."
                     />
                   </div>
                 </div>
@@ -711,7 +711,7 @@ export default function Development() {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between shadow-sm">
                     <span className="font-mono text-[10px] text-body-mid uppercase font-semibold">Total Revenue</span>
-                    <span className="font-sans text-xl sm:text-2xl font-bold text-ink">$58.4M</span>
+                    <span className="font-sans text-xl sm:text-2xl font-bold text-ink">₹5.84 L</span>
                     <span className="font-mono text-[10px] text-emerald-400 font-semibold">▲ 12.5% vs MoM</span>
                   </div>
 
@@ -1319,7 +1319,7 @@ export default function Development() {
               Ready to Architect Your Core Software?
             </h3>
             <p className="font-sans text-xs sm:text-sm text-body-mid max-w-md mb-6 leading-relaxed">
-              Book a 30-minute technical discovery session with KYRO lead engineers. No salespeople—direct architecture review.
+              Book a free 15-minute call with Lakshya, the founder. We will discuss the problem and whether a small first step makes sense.
             </p>
             <Link
               to="/contact"

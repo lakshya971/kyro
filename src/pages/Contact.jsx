@@ -24,12 +24,9 @@ export default function Contact() {
   const disciplinesList = [
     'Web Development',
     'Custom Software',
-    'AI Automation',
-    'Agentic AI',
-    'RAG Systems',
-    'n8n Workflows',
-    'Data Analytics',
-    'BI Consultation'
+    'Business Dashboards',
+    'Practical AI Automation',
+    'Project Consultation'
   ];
 
   const budgetOptions = [
@@ -81,12 +78,16 @@ export default function Contact() {
             </span>
           </div>
 
+          <p className="font-mono text-xs text-body-mid mb-3">
+            Based in Lucknow, Uttar Pradesh • Founder-led by Lakshya
+          </p>
+
           <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.15] mb-4">
             Initiate Technical Engagement
           </h1>
 
           <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-6">
-            Direct scoping with senior systems architects. Zero sales reps, no arbitrary upselling—only technical feasibility assessments and clear execution blueprints.
+            You will speak directly with the founder. Share what is not working, and I will reply with an honest view of the best next step, likely scope, and fit.
           </p>
 
           <div className="flex items-center gap-2 text-xs font-mono text-body-mid bg-surface-container-low p-3 rounded-xl border border-hairline max-w-md">
@@ -104,10 +105,10 @@ export default function Contact() {
               Technical RFC Dispatched Successfully
             </h2>
             <p className="font-sans text-sm sm:text-base text-body-text max-w-lg leading-relaxed">
-              Thank you, <strong className="text-ink">{formData.name || 'Engineer'}</strong>. Your project parameters and requested disciplines have been registered into our queue. A senior systems architect will respond to <strong className="text-breeze-blue">{formData.email}</strong> within 4 business hours.
+              Thank you, <strong className="text-ink">{formData.name || 'Engineer'}</strong>. Your project parameters and requested disciplines have been registered into our queue.               I will respond to <strong className="text-breeze-blue">{formData.email}</strong> as soon as I can during working hours.
             </p>
             <div className="p-4 rounded-xl bg-surface-container font-mono text-xs text-body-mid border border-hairline/60">
-              SESSION REF: KYRO-ENG-{Math.floor(100000 + Math.random() * 900000)} • SLA ACTIVE
+              SESSION REF: KYRO-{Math.floor(100000 + Math.random() * 900000)} • RECEIVED
             </div>
             <button
               onClick={() => setSubmitted(false)}
@@ -262,7 +263,7 @@ export default function Contact() {
               {/* Timeline */}
               <div className="flex flex-col gap-3">
                 <label className="font-mono text-xs text-body-mid uppercase">
-                  Target Delivery SLA
+                  Preferred Timeline
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {timelineOptions.map((opt) => (
@@ -341,14 +342,9 @@ export default function Contact() {
                     <span className="material-symbols-outlined text-[14px]">mail</span>
                     founder@kyro.tech
                   </a>
-                  <a
-                    href="https://wa.me/919999999999?text=Hello%20KYRO%20Team,%20I%20would%20like%20to%20discuss%20a%20project"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1"
-                  >
-                    <span>WhatsApp Direct</span>
-                  </a>
+                  <span className="text-body-mid flex items-center gap-1">
+                    WhatsApp link available on request
+                  </span>
                 </div>
               </div>
             </div>

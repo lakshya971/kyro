@@ -22,9 +22,9 @@ export default function AiWorkflows() {
       latency: '0ms',
       inputData: 'Manual operational routines, document processing backlogs (invoices, PDF agreements, customer queries), and cross-tool data synchronization lag.',
       kyroProcess: '48-Hour Workflow Audit: Decomposing manual routines into deterministic state transitions, calculating hourly staffing burn, and defining tool execution endpoints.',
-      businessOutput: 'Comprehensive Automation Blueprint: Isolates high-yield workflows with guaranteed 75%+ manual hours reclaimed and fixed implementation flat fees.',
-      sla: '48 Hours to Formal Blueprint',
-      guarantee: 'Zero fee if less than 15 productive hours/week saved.'
+      businessOutput: 'A practical automation plan showing what can be automated, what needs review, and the estimated implementation effort.',
+      sla: 'Initial audit discussion',
+      guarantee: 'No savings guarantee; expected benefits are estimated from your process.'
     },
     {
       id: 'ai-step-02',
@@ -39,8 +39,8 @@ export default function AiWorkflows() {
       inputData: 'Client cloud cluster credentials (AWS / GCP / Bare Metal) and internal data compliance policies.',
       kyroProcess: 'Deploying self-hosted, private n8n node clusters and pgvector / Qdrant instances inside client VPC with zero third-party external data leaks.',
       businessOutput: '100% Data-Sovereign Environment: Credentials, API tokens, internal databases, and execution logs remain completely inside your network with ₹0 SaaS fees.',
-      sla: '3-5 Business Days',
-      guarantee: '100% data sovereignty. Zero data used for public LLM training.'
+      sla: 'Early project milestone',
+      guarantee: 'Data handling and hosting choices are documented before setup.'
     },
     {
       id: 'ai-step-03',
@@ -50,13 +50,13 @@ export default function AiWorkflows() {
       icon: 'smart_toy',
       title: 'Multi-Agent DAG & Grammar Binding',
       subtitle: 'Self-healing orchestrator with JSON grammar guards',
-      status: '99.4% BENCHMARK',
+      status: 'TEST PLAN AGREED',
       latency: '34ms',
       inputData: 'Target business software endpoints: SAP, Salesforce, PostgreSQL, WhatsApp API, Slack, Stripe.',
       kyroProcess: 'Engineering autonomous multi-agent state machines with strict JSON schema validation, sandboxed Python/JS execution, and deterministic consensus voting on critical actions.',
-      businessOutput: 'Self-healing multi-agent DAGs that execute complex business goals, handle tool-calling errors gracefully, and enforce zero-hallucination boundaries.',
-      sla: '7-10 Business Days',
-      guarantee: '99.4% deterministic benchmark across 1,200+ test sessions.'
+      businessOutput: 'A scoped workflow with validation, logs, and human review for actions that should not run automatically.',
+      sla: 'After scope approval',
+      guarantee: 'Test cases and known limitations are documented.'
     },
     {
       id: 'ai-step-04',
@@ -70,9 +70,9 @@ export default function AiWorkflows() {
       latency: '18ms',
       inputData: 'Proprietary enterprise SOPs, technical documents, company policies, and historical customer interactions.',
       kyroProcess: 'Ingesting and indexing documentation into hybrid dense vector + sparse keyword search spaces with cross-encoder reranking and source citation enforcement.',
-      businessOutput: 'Grounded enterprise intelligence layer delivering audited markdown source citations with 0% fabricated answers.',
-      sla: '3 Business Days',
-      guarantee: '100% sourced citations with strict hallucination boundaries.'
+      businessOutput: 'A searchable knowledge layer that links answers back to the documents available to it.',
+      sla: 'After document review',
+      guarantee: 'The system can abstain or escalate when the source material is not sufficient.'
     },
     {
       id: 'ai-step-05',
@@ -81,14 +81,14 @@ export default function AiWorkflows() {
       badgeColor: 'text-sunset-orange border-sunset-orange/30 bg-sunset-orange/10',
       icon: 'bolt',
       title: 'Production Launch & Monitored Autonomy',
-      subtitle: '24/7 self-healing runtime with exception dead-letters',
-      status: '24/7 ACTIVE',
+      subtitle: 'Monitored runtime with exception handling',
+      status: 'MONITORED',
       latency: '12ms',
       inputData: 'Live production transactions, inbound webhooks, and customer communication channels.',
       kyroProcess: 'Gradual production rollout with dead-letter queue exception traps, automated Slack/WhatsApp failure alerts, and automated transactional rollback protection.',
-      businessOutput: 'Autonomous production engine running 24/7, reclaiming 120+ hours monthly, complete operator runbooks, staff training workshops, and 90-Day SLA maintenance warranty.',
-      sla: 'Continuous 24/7 Autonomy',
-      guarantee: '90-Day Production SLA & Free Pipeline Monitoring.'
+      businessOutput: 'A monitored workflow with exception handling, operator notes, and a handover walkthrough.',
+      sla: 'Post-launch support by agreement',
+      guarantee: 'Support and maintenance terms are agreed separately for each project.'
     }
   ];
 
@@ -96,7 +96,7 @@ export default function AiWorkflows() {
   const [streamIndex, setStreamIndex] = useState(0);
   const [streamLogs] = useState([
     'ToolCall: query_erp_inventory — Status: OK, Latency: 42ms',
-    'AgentReflect: Evaluating delta vs safety constraints (99.4%)',
+    'AgentReflect: Evaluating the next step against safety rules...',
     'Dispatching self-healing workflow node via n8n orchestrator...',
     'RAG Retrieval: Grounded vector query over 42k enterprise docs — Score: 0.988',
     'Multi-agent consensus achieved. Submitting transaction receipt to ledger.'
@@ -267,7 +267,7 @@ export default function AiWorkflows() {
     },
     {
       role: 'user',
-      text: 'How do your AI agents eliminate hallucinations?'
+      text: 'How do your AI workflows handle uncertain answers?'
     },
     {
       role: 'assistant',
@@ -298,13 +298,13 @@ export default function AiWorkflows() {
           'We deploy self-hosted n8n instances on sovereign client clusters (Docker/Kubernetes). All webhooks, database credentials, and execution logs remain 100% inside your network boundary with ₹0 recurring third-party SaaS fees.';
       } else if (lower.includes('timeline') || lower.includes('deployment')) {
         reply =
-          'Standard deterministic n8n workflows deploy in 5-7 business days. Complex multi-agent swarms with custom tool contracts deploy in 10-14 days under strict milestone SLAs.';
+          'Simple n8n workflows can be scoped quickly. More involved automations take longer depending on integrations, testing, and access to your systems.';
       } else if (lower.includes('sap') || lower.includes('postgresql') || lower.includes('database')) {
         reply =
           'Yes. We build native REST/GraphQL bridges, Kafka stream taps, and direct relational database drivers with transaction rollback protection for zero data loss.';
       } else {
         reply =
-          'Our autonomous pipelines map your existing friction points into formal state machines. Every tool call and external webhook is logged with sub-second auditability.';
+          'Our workflows map your existing friction points into clear steps. Important tool calls and external webhooks can be logged for review.';
       }
       setChatMessages((prev) => [...prev, { role: 'assistant', text: reply }]);
       setIsTyping(false);
@@ -331,10 +331,10 @@ export default function AiWorkflows() {
       id: '01',
       title: 'AI-Powered Business Automation',
       icon: 'psychology',
-      desc: 'Delegate repetitive lead sorting, email replies, order validation, and back-office data entry to deterministic AI workflows that execute 24/7.',
+      desc: 'Delegate repetitive lead sorting, notifications, order checks, and back-office data entry to workflows with clear review points.',
       idealFor: 'Sales, Operations & Admin Teams',
-      businessBenefit: 'Reclaims 15–30 productive hours per team member monthly while cutting manual entry errors to zero.',
-      metric: '85% Manual Drop'
+      businessBenefit: 'Can reduce repetitive steps; the expected impact is estimated from your current process.',
+      metric: 'Scope-based estimate'
     },
     {
       id: '02',
@@ -349,10 +349,10 @@ export default function AiWorkflows() {
       id: '03',
       title: 'Grounded Enterprise RAG Systems',
       icon: 'dataset',
-      desc: 'Private company AI trained strictly on your pricing catalogs, SOPs, product manuals, and contracts—producing instant cited answers with zero fabrication.',
+      desc: 'A private document search assistant that points back to the material you provide and can hand uncertain questions to a person.',
       idealFor: 'Support Desks, Sales Reps & Internal Onboarding',
       businessBenefit: 'Cuts customer response times from hours to 3 seconds using verified company policy documents.',
-      metric: '100% Sourced Citations'
+      metric: 'Source links where available'
     },
     {
       id: '04',
@@ -360,17 +360,17 @@ export default function AiWorkflows() {
       icon: 'hub',
       desc: 'Private automation clusters hosted on your own cloud server connecting CRMs, PostgreSQL, Razorpay/Stripe, Google Sheets, WhatsApp, and Slack with zero Zapier tax.',
       idealFor: 'Privacy-Sensitive & High-Volume Automation Teams',
-      businessBenefit: 'Saves ₹15,000–₹75,000+/month on per-task SaaS automation fees with 100% internal data security.',
-      metric: '100% Data Sovereignty'
+      businessBenefit: 'Can reduce copy-paste work between the tools your business already uses.',
+      metric: 'Private hosting option'
     },
     {
       id: '05',
       title: 'Intelligent Document Processing & OCR',
       icon: 'description',
-      desc: 'Automatically read supplier invoices, GST bills, PO PDFs, and KYC documents into clean database rows and accounting approvals in under a second.',
+      desc: 'Read invoices and business documents into structured fields for review before they are used elsewhere.',
       idealFor: 'Finance, Accounting & Logistics Teams',
-      businessBenefit: 'Replaces hours of manual PDF-to-ERP typing with automated 99.7% field-verified extraction.',
-      metric: 'Sub-second Parsing'
+      businessBenefit: 'Reduces manual document entry while keeping a review step for uncertain fields.',
+      metric: 'Clear processing steps'
     },
     {
       id: '06',
@@ -387,19 +387,19 @@ export default function AiWorkflows() {
     {
       dept: 'SALES & LEAD RESPONSE',
       before: 'Web leads sit unread for 4–8 hours before reps manually enter CRM rows and email quotes.',
-      after: 'Webhook catches inquiry in 14ms, enriches company data, scores lead, updates CRM, alerts Slack/WhatsApp, and sends tailored calendar link instantly.',
+      after: 'Webhook receives an inquiry, updates the selected tool, alerts the team, and can send a follow-up message after review.',
       impact: '3x–5x faster speed-to-lead conversion'
     },
     {
       dept: 'FINANCE & INVOICE OPS',
       before: 'Accounts staff spend days opening supplier PDFs, checking GST numbers, and typing line items into ERP.',
       after: 'AI OCR parses incoming PDF invoices automatically, cross-checks PO amounts in PostgreSQL, flags mismatches, and queues approved payouts.',
-      impact: '85% drop in manual accounting hours'
+      impact: 'Less repetitive accounting work'
     },
     {
       dept: 'CUSTOMER SUPPORT & CHAT',
       before: 'Support agents answer repetitive order status, policy, and troubleshooting questions manually all day.',
-      after: 'Grounded RAG Chatbot answers 24/7 directly from your live order API and SOP docs, capturing leads and handing off edge cases cleanly.',
+      after: 'A document assistant answers from the material provided, with a clear handoff when it cannot find enough context.',
       impact: '70%+ Tier-1 ticket deflection'
     },
     {
@@ -423,7 +423,7 @@ export default function AiWorkflows() {
           </span>
         </div>
         <span className="font-mono text-[11px] text-emerald-400 font-semibold">
-          STATE: SYNTHESIZING • 99.4% BENCHMARK
+          STATE: SYNTHESIZING • TESTING
         </span>
       </div>
 
@@ -479,8 +479,8 @@ export default function AiWorkflows() {
                 alt="Multi-Agent AI Orchestration & Workflow Graph Preview"
                 title="Client Deliverable Preview • Agentic Swarm & Workflow Monitor"
                 badge="AI Orchestration"
-                caption="Visual preview of how autonomous agents coordinate sub-tasks, enforce guardrails, and log outcomes at 99.4% accuracy."
-                metrics={['99.4% Accuracy', 'Air-Gapped n8n', '24/7 Autonomy']}
+                caption="Visual preview of how scoped automations coordinate tasks, apply guardrails, and log outcomes."
+                metrics={['Human Review', 'Private Hosting Option', 'Clear Logs']}
                 eager={true}
               />
             </div>
@@ -490,7 +490,7 @@ export default function AiWorkflows() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-canvas-card border border-hairline p-5 rounded-2xl shadow-sm">
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-ink font-normal tracking-tight">
-                99.4%
+                Review
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
                 Agent Success Rate
@@ -498,7 +498,7 @@ export default function AiWorkflows() {
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-breeze-blue font-normal tracking-tight">
-                -84.2%
+                Example workflow
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
                 Manual Latency Drop
@@ -540,7 +540,7 @@ export default function AiWorkflows() {
                 How Your Organization Receives Autonomous AI Systems
               </h2>
               <p className="font-sans text-sm text-body-mid mt-1 max-w-2xl leading-relaxed">
-                An n8n-inspired visual state machine illustrating how manual operational friction is transformed into 24/7 monitored autonomy. Step through each node to see concrete inputs, transformation logic, and deliverables.
+                An illustrative workflow showing how repetitive work can be broken into steps, checked, and handed back to a person when needed.
               </p>
             </div>
 
@@ -562,7 +562,7 @@ export default function AiWorkflows() {
                   KYRO_AI_ORCHESTRATION_PIPELINE.DAG
                 </span>
                 <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
-                  STATE: ACTIVE • 14MS
+                  STATE: SIMULATED DEMO
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs font-mono text-body-mid">
@@ -634,7 +634,7 @@ export default function AiWorkflows() {
                     {currentDeliveryNode.stage} — {currentDeliveryNode.title}
                   </span>
                   <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
-                    SLA: {currentDeliveryNode.sla}
+                    TIMELINE: {currentDeliveryNode.sla}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -696,7 +696,7 @@ export default function AiWorkflows() {
               {/* Bottom Guarantee Banner */}
               <div className="p-3 bg-surface-container rounded-xl flex items-center justify-between text-xs font-mono">
                 <span className="text-body-mid">
-                  DELIVERY COMMITMENT: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
+                  DELIVERY NOTE: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
                 </span>
                 <Link
                   to="/contact"
@@ -867,9 +867,9 @@ export default function AiWorkflows() {
                     </div>
 
                     <div className="flex items-center gap-4 text-xs font-mono text-body-mid pt-3 border-t border-hairline/60">
-                      <span>EXECUTION: 14MS</span>
-                      <span>IDEMPOTENCY: GUARANTEED</span>
-                      <span>RETRY: EXPONENTIAL</span>
+                      <span>EXECUTION: EXAMPLE</span>
+                      <span>REVIEW: AVAILABLE</span>
+                      <span>RETRY: CONFIGURED PER SCOPE</span>
                     </div>
                   </div>
 
@@ -1135,7 +1135,7 @@ export default function AiWorkflows() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-xs text-emerald-400 font-bold bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-full">
-                      SUCCESS RATE: 99.4%
+                      SUCCESS RATE: TEST WITH YOUR DATA
                     </span>
                   </div>
                 </div>
@@ -1153,7 +1153,7 @@ export default function AiWorkflows() {
                       Rather than one fragile prompt trying to do everything, KYRO deploys specialized subagents (Research, Documentation, DevOps, Execution) overseen by a master dispatcher that recovers errors automatically.
                     </p>
                     <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
-                      <div>• Tracks live token efficiency, session depth & 99.4% completion rate</div>
+                      <div>• Tracks workflow runs, review points, and exceptions</div>
                       <div>• Automatic context compaction prevents long-task drift</div>
                     </div>
                   </div>
@@ -1215,7 +1215,7 @@ export default function AiWorkflows() {
                     <div className="p-4 rounded-xl bg-surface-container border border-hairline flex flex-col justify-between">
                       <span className="text-body-mid text-[10px] uppercase">OUTCOMES</span>
                       <span className="text-emerald-400 font-sans text-2xl font-bold mt-1">1,200+ Done</span>
-                      <span className="text-rose-400 text-[11px] mt-1">Only 7 errors (99.4%)</span>
+                      <span className="text-rose-400 text-[11px] mt-1">Exceptions are surfaced for review</span>
                     </div>
                   </div>
                 </div>
@@ -1240,7 +1240,7 @@ export default function AiWorkflows() {
                   <div>
                     <span className="text-body-mid block text-[10px] uppercase">TRANSACTION RECOVERY</span>
                     <span className="text-emerald-400 font-sans text-xl font-bold">Automated</span>
-                    <span className="text-body-mid block text-[10px]">Sub-second self heal</span>
+                    <span className="text-body-mid block text-[10px]">Human review when needed</span>
                   </div>
                 </div>
               </div>
@@ -1267,13 +1267,13 @@ export default function AiWorkflows() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-5 rounded-2xl bg-surface-container-lowest border border-hairline">
                   <div className="lg:col-span-5 flex flex-col gap-3">
                     <span className="font-mono text-[11px] text-pink-400 uppercase font-bold">
-                      24/7 SUPPORT & LEAD CAPTURE
+                      SUPPORT & LEAD CAPTURE (EXAMPLE)
                     </span>
                     <h4 className="font-sans text-lg font-semibold text-ink">
                       Answer Company-Specific Questions Without Making Facts Up
                     </h4>
                     <p className="text-xs sm:text-sm text-body-mid leading-relaxed">
-                      Generic chatbots hallucinate discounts or policies. KYRO trains private RAG assistants over your verified pricing, FAQs, and documentation so visitors get exact answers and qualify leads around the clock.
+                      Chatbots can make mistakes. A document assistant can use your pricing, FAQs, and documentation as context, while uncertain answers are sent to a person for review.
                     </p>
                     <div className="pt-2 space-y-1.5 text-xs font-mono text-ink">
                       <div>• Answers strictly from approved internal SOP & product docs</div>
@@ -1392,7 +1392,7 @@ export default function AiWorkflows() {
               <div className="flex items-center gap-2">
                 <span className="font-mono text-[11px] text-sunset-orange">REALTIME EXECUTION</span>
                 <span className="font-mono text-[10px] bg-surface-container px-2 py-0.5 rounded text-breeze-blue">
-                  00:00:14.28
+                  EXAMPLE RUN
                 </span>
               </div>
             </div>
@@ -1638,7 +1638,7 @@ export default function AiWorkflows() {
               Beyond generic prompting and shallow wrappers.
             </h2>
             <p className="font-sans text-sm sm:text-base text-body-text leading-relaxed mb-8 max-w-3xl">
-              Most automation projects fail in production because of unbounded token variance and hallucinated state. At KYRO, we engineer formal grammar enforcement, sandboxed execution runtimes, and local tool contracts that eliminate drift.
+              Automation needs testing and boundaries. KYRO focuses on clear inputs, validation, logs, and human review rather than promising perfect AI output.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

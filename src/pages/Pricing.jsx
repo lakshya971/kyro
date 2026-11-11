@@ -14,16 +14,16 @@ export default function Pricing() {
       domain: 'web',
       category: 'Web Architecture',
       title: 'Starter Web Architecture',
-      price: '₹18,000',
+      price: 'Starting at ₹18,000',
       numericPrice: 18000,
-      period: 'one-time fixed',
-      sla: '5-7 Day SLA',
-      desc: 'Engineered fast, semantic, and high-converting 5-page custom responsive web platform. Optimized for sub-second load times on 4G/5G mobile carriers.',
-      bottleneck: 'Eliminates sluggish WordPress/Wix bloat that loses 60%+ mobile visitors. Zero recurring plugin license fees.',
+      period: 'scope-based estimate',
+      sla: 'Typical estimate: 5-7 days',
+      desc: 'A focused 5-page custom responsive website with clear content, basic SEO, and lead capture.',
+      bottleneck: 'Replaces a hard-to-maintain template with a focused site and a clear handover.',
       inclusions: [
         'Up to 5 production-ready pages (Home, Services, About, Specs, Contact)',
         'Tailwind CSS semantic tokens with zero external CSS overhead',
-        'Sub-250ms Core Web Vitals score 99+',
+        'Responsive layout and basic performance checks',
         'Automated lead capture webhook to email / CRM',
         '30-day post-launch code warranty'
       ]
@@ -33,10 +33,10 @@ export default function Pricing() {
       domain: 'web',
       category: 'Web Architecture',
       title: 'Growth Business Platform',
-      price: '₹35,000',
+      price: 'Starting at ₹30,000',
       numericPrice: 35000,
-      period: 'one-time fixed',
-      sla: '10-14 Day SLA',
+      period: 'scope-based estimate',
+      sla: 'Typical estimate: 10-14 days',
       desc: 'Dynamic 10-12 page digital engine with headless CMS, interactive quote calculator, dynamic resources, and integrated telemetry funnel.',
       bottleneck: 'Bridges the gap between static brochure sites and enterprise SaaS, turning passive traffic into qualified inbound pipeline.',
       inclusions: [
@@ -52,10 +52,10 @@ export default function Pricing() {
       domain: 'software',
       category: 'Software & MVP',
       title: 'Custom Software / SaaS MVP',
-      price: '₹65,000',
+      price: 'Custom quote',
       numericPrice: 65000,
-      period: 'one-time fixed',
-      sla: '2-3 Weeks SLA',
+      period: 'scope-based estimate',
+      sla: 'Typical estimate: 2-3 weeks',
       desc: 'Full-stack production application built on React, Node/Go, and PostgreSQL. Multi-tenant database schema, authentication, and payment gateway.',
       bottleneck: 'Eliminates unmaintainable no-code platform constraints when scaling to your first 5,000 active transactional users.',
       inclusions: [
@@ -66,82 +66,6 @@ export default function Pricing() {
         'Docker containerization + 90-day defect warranty'
       ]
     },
-    {
-      id: 'pkg-04',
-      domain: 'ai',
-      category: 'AI & n8n Workflows',
-      title: 'n8n Workflow Automation Engine',
-      price: '₹24,000',
-      numericPrice: 24000,
-      period: 'one-time fixed',
-      sla: '5-7 Day SLA',
-      desc: 'Self-hosted high-security node pipelines connecting CRM, databases, payment gateways, and communications with zero external SaaS fees.',
-      bottleneck: 'Eliminates ₹15,000+/mo recurring Zapier/Make subscription costs and manual copy-paste errors across disparate internal apps.',
-      inclusions: [
-        'Dedicated self-hosted n8n installation on your cloud',
-        'Up to 5 custom multi-step end-to-end workflows',
-        'Webhook error-trapping with instant Telegram/Slack alerts',
-        'Data sovereignty: 100% internal network containment',
-        'Operator training session & comprehensive runbooks'
-      ]
-    },
-    {
-      id: 'pkg-05',
-      domain: 'ai',
-      category: 'AI & n8n Workflows',
-      title: 'Agentic AI Autonomous System',
-      price: '₹55,000',
-      numericPrice: 55000,
-      period: 'one-time fixed',
-      sla: '10-14 Day SLA',
-      desc: 'Multi-agent autonomous workflow unit with goal seeking, tool execution capabilities, vector RAG grounding, and deterministic error recovery.',
-      bottleneck: 'Replaces expensive, error-prone manual triage with 24/7 autonomous agents that execute multi-step database actions with zero hallucinations.',
-      inclusions: [
-        'Multi-agent topology graph (Orchestrator + Specialist Nodes)',
-        'Hybrid Vector Database setup (Qdrant/pgvector + BM25 keywords)',
-        'Strict schema guardrails with formal grammar validation',
-        'Automated human-in-the-loop escalation nodes for edge cases',
-        'Comprehensive unit test harness & regression tests'
-      ]
-    },
-    {
-      id: 'pkg-06',
-      domain: 'analytics',
-      category: 'Power BI & Insights',
-      title: 'Power BI Executive Intelligence Suite',
-      price: '₹32,000',
-      numericPrice: 32000,
-      period: 'one-time fixed',
-      sla: '7-10 Day SLA',
-      desc: 'High-velocity executive telemetry suite uniting fragmented databases into real-time KPI observation, cohort retention, and margin analysis.',
-      bottleneck: 'Ends conflicting departmental spreadsheets and delayed executive reporting with an unambiguous single source of truth.',
-      inclusions: [
-        'Automated ETL pipelines connecting CRM, accounting, and databases',
-        'DAX semantic metric model with single-source CAC/LTV/EBITDA formulas',
-        '3 customized responsive desktop & mobile dashboards',
-        'Automated scheduled refreshes and statistical threshold alerts',
-        'Executive training memo and dashboard documentation'
-      ]
-    },
-    {
-      id: 'pkg-07',
-      domain: 'software',
-      category: 'Software & MVP',
-      title: 'Enterprise Fractional CTO & Retainer',
-      price: '₹48,000',
-      numericPrice: 48000,
-      period: 'per month',
-      sla: 'Continuous SLA',
-      desc: 'High-stakes technological leadership, continuous code reviews, sprint architecture, security audits, and dedicated priority engineering allocation.',
-      bottleneck: 'Provides institutional-grade technical leadership and senior execution without ₹30L+ full-time executive salary overhead.',
-      inclusions: [
-        'Bi-weekly technical architecture & sprint steering reviews',
-        'Priority code auditing, pull request reviews, and security hardening',
-        'Direct founder Slack/WhatsApp access with 4-hour SLA response',
-        'Emergency outage escalation & failover intervention',
-        'Ongoing technological roadmap calibration'
-      ]
-    }
   ];
 
   const addons = [
@@ -167,19 +91,19 @@ export default function Pricing() {
   const faqs = [
     {
       q: 'Are there any hidden recurring fees or monthly maintenance charges?',
-      a: 'None. All our fixed projects are delivered with 100% source code ownership and full documentation. You only pay for your own cloud infrastructure (AWS/Cloudflare/Hetzner), which typically costs less than ₹1,500/month for standard systems.'
+      a: 'The project price is agreed in writing before work starts. Hosting, domain, paid APIs, and other third-party costs are separate and paid by the client when needed.'
     },
     {
       q: 'How does KYRO prevent scope creep and project delays?',
-      a: 'We work on strict technical RFCs and engineering specifications agreed upon before code is written. Every milestone has a deterministic timeline and unambiguous deliverables, guaranteeing on-time delivery without unexpected invoices.'
+      a: 'We agree on a written scope, milestones, and assumptions before code is written. If the scope changes, we discuss the impact before doing the extra work.'
     },
     {
       q: 'Do I own the intellectual property and code repository?',
-      a: 'Yes, 100%. Upon completion and payment settlement, all intellectual property, repository commits, and infrastructure credentials are fully assigned to your enterprise.'
+      a: 'Yes. After final payment, the delivered project files and code are handed over to you. Any third-party templates or services remain subject to their own licences.'
     },
     {
       q: 'How are payments structured?',
-      a: 'Standard commercial projects operate on a 50% technical deposit upon specification approval, and 50% upon final production deployment and acceptance testing. GST invoicing provided for all Indian businesses.'
+      a: 'For small projects, the usual structure is 50% to begin and 50% on handover. The exact split is written in the project agreement. Invoices are in INR; GST is not included unless applicable.'
     }
   ];
 
@@ -215,19 +139,19 @@ export default function Pricing() {
           </h1>
 
           <p className="font-sans text-base sm:text-lg text-body-mid leading-relaxed mb-8 max-w-2xl">
-            Fixed investment milestones with institutional-grade rigor. Flat pricing, direct founder scoping, and zero accumulated technical debt.
+            Clear project packages, direct founder scoping, and pricing you can review before we start.
           </p>
 
           {/* Key Market Context Banner */}
           <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-body-mid">
             <span className="px-3 py-1.5 rounded-full bg-surface-container border border-hairline text-breeze-blue">
-              ₹ INR Invoicing (GST Compliant)
+              INR Invoicing
             </span>
             <span className="px-3 py-1.5 rounded-full bg-surface-container border border-hairline text-ink">
-              Direct Founder Architecture Scoping
+              Founder-led by Lakshya
             </span>
             <span className="px-3 py-1.5 rounded-full bg-surface-container border border-hairline text-sunset-orange">
-              Zero Tech Debt Guarantee
+              Founding client rates available
             </span>
           </div>
         </section>
@@ -235,7 +159,7 @@ export default function Pricing() {
         {/* Filter Chips */}
         <section className="pb-8 flex flex-col gap-3">
           <span className="font-mono text-xs text-body-mid uppercase tracking-wider font-semibold">
-            SELECT DOMAIN FOCUS
+          THREE WAYS TO START
           </span>
           <div className="flex overflow-x-auto no-scrollbar gap-2 py-1">
             <button
@@ -274,29 +198,6 @@ export default function Pricing() {
               <span>Software & MVP</span>
             </button>
 
-            <button
-              onClick={() => setFilter('ai')}
-              className={`px-4 py-2 rounded-full font-mono text-xs transition-all flex items-center gap-2 shrink-0 ${
-                filter === 'ai'
-                  ? 'bg-canvas-card border border-pill-border text-ink font-bold shadow-md'
-                  : 'bg-canvas-soft border border-hairline text-body-mid hover:text-ink'
-              }`}
-            >
-              <span className="material-symbols-outlined text-[16px]">smart_toy</span>
-              <span>AI & n8n Workflows</span>
-            </button>
-
-            <button
-              onClick={() => setFilter('analytics')}
-              className={`px-4 py-2 rounded-full font-mono text-xs transition-all flex items-center gap-2 shrink-0 ${
-                filter === 'analytics'
-                  ? 'bg-canvas-card border border-pill-border text-ink font-bold shadow-md'
-                  : 'bg-canvas-soft border border-hairline text-body-mid hover:text-ink'
-              }`}
-            >
-              <span className="material-symbols-outlined text-[16px]">query_stats</span>
-              <span>Power BI & Insights</span>
-            </button>
           </div>
         </section>
 
@@ -340,7 +241,7 @@ export default function Pricing() {
                     <div className="flex items-center gap-2 text-sunset-orange mb-1">
                       <span className="material-symbols-outlined text-[16px]">verified</span>
                       <span className="font-mono text-[11px] uppercase font-semibold">
-                        Critical Bottleneck Solved
+                        Problem This Package Addresses
                       </span>
                     </div>
                     <p className="text-xs text-body-text leading-relaxed">
@@ -371,7 +272,7 @@ export default function Pricing() {
                     to="/contact"
                     className="w-full py-3 rounded-full bg-surface-container-high hover:bg-surface-bright border border-pill-border text-ink font-mono text-xs text-center font-bold uppercase tracking-wider transition-all block"
                   >
-                    Lock In Spec & SLA
+                    Review Scope & Enquire
                   </Link>
                 </div>
               </article>

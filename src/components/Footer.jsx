@@ -17,11 +17,11 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs text-body-mid leading-relaxed">
-              Engineering high-throughput digital systems, autonomous agentic intelligence, and high-clarity data architecture for measurable commercial advantage.
+              Founder-led, student-built websites, software, dashboards, and automations for growing businesses.
             </p>
             <div className="flex items-center gap-2 text-[11px] font-mono text-body-mid mt-2">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>GLOBAL CLUSTER: ONLINE • 14MS</span>
+              <span>FOUNDER-LED • DIRECT COMMUNICATION</span>
             </div>
           </div>
 
@@ -43,17 +43,17 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/ai-workflows" className="hover:text-ink transition-colors">
-                  03. AI Automation Systems
+                  03. Business Dashboards
                 </Link>
               </li>
               <li>
                 <Link to="/ai-workflows" className="hover:text-ink transition-colors">
-                  04. Agentic AI & Swarms
+                  04. Practical AI Automation
                 </Link>
               </li>
               <li>
                 <Link to="/analytics" className="hover:text-ink transition-colors">
-                  05. Power BI & Analytics
+                  05. Project Consultation
                 </Link>
               </li>
             </ul>
@@ -124,11 +124,10 @@ export default function Footer() {
         {/* Bottom Line */}
         <div className="pt-6 border-t border-hairline/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-body-mid">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} KYRO ARCHITECTURES.</span>
+            <span>© {new Date().getFullYear()} KYRO.</span>
             <span>All technical rights reserved.</span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span>STITCH ID: 12480665539141793349</span>
             <span>ZERO BLOAT PROTOCOL</span>
             <span className="text-sunset-orange">PRODUCTION BUILD</span>
           </div>

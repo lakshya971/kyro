@@ -24,7 +24,7 @@ export default function Analytics() {
       kyroProcess: '48-Hour Silo Audit: Scanning schema drift, identifying duplicate records, mapping entity relationships, and isolating cross-currency timezone reconciliation bugs.',
       businessOutput: 'Unified Data Architecture Inventory: Exposes hidden reporting lags and reveals exact points of commercial margin leakage across business divisions.',
       sla: '48 Hours to Formal Audit',
-      guarantee: 'Zero fee if less than ₹20L in margin leak or reporting latency identified.'
+      guarantee: 'The audit documents reporting gaps and practical next steps.'
     },
     {
       id: 'analytics-step-02',
@@ -32,15 +32,15 @@ export default function Analytics() {
       type: 'DBT MODELING',
       badgeColor: 'text-breeze-blue border-breeze-blue/30 bg-breeze-blue/10',
       icon: 'warehouse',
-      title: 'Automated ELT & dbt Warehouse Modeling',
+      title: 'Data Cleanup & Dashboard Modeling',
       subtitle: 'Dimensional star/snowflake modeling with daily CI/CD',
-      status: 'dbt COMPILED',
+      status: 'MODEL REVIEWED',
       latency: '14ms',
       inputData: 'Raw transactional tables, webhook event streams, and historical accounting data dumps.',
-      kyroProcess: 'Architecting clean relational schemas in Snowflake, ClickHouse, or PostgreSQL with automated incremental dbt models, deduplication, and automated data quality tests.',
+      kyroProcess: 'Cleaning source data, defining useful tables, removing duplicates, and adding checks for the agreed reporting fields.',
       businessOutput: 'Production Dimensional Warehouse: Structured tables with continuous automated tests (uniqueness, referential integrity, zero nulls) and zero storage waste.',
       sla: '5 Business Days',
-      guarantee: '100% test coverage across all dimensional tables.'
+      guarantee: 'The agreed data checks are documented and reviewed.'
     },
     {
       id: 'analytics-step-03',
@@ -53,10 +53,10 @@ export default function Analytics() {
       status: 'TRUTH LOCK PASS',
       latency: '6ms',
       inputData: 'Conflicting departmental definitions of CAC, LTV, EBITDA margin, active accounts, and retention.',
-      kyroProcess: 'Mathematical standardization of single-source-of-truth formulas in DAX semantic models and dbt metric layers, eliminating conflicting executive figures.',
+      kyroProcess: 'Writing down metric definitions and implementing the agreed calculations in the selected dashboard tool.',
       businessOutput: 'Single Source of Truth Layer: Centralized metric contracts ensuring finance, marketing, and sales leadership view identical, verified numbers.',
       sla: '3-5 Business Days',
-      guarantee: 'Zero departmental metric divergence across the organization.'
+      guarantee: 'Metric definitions are written down so teams can use the same terms.'
     },
     {
       id: 'analytics-step-04',
@@ -69,10 +69,10 @@ export default function Analytics() {
       status: 'SUB-SECOND LIVE',
       latency: '18ms',
       inputData: 'Standardized semantic models & executive KPI reporting priorities.',
-      kyroProcess: 'Developing responsive Power BI and custom embedded React dashboards optimized for sub-second DirectQuery caching with handheld mobile-first responsiveness.',
+      kyroProcess: 'Developing responsive Power BI and custom embedded React dashboards sized for the agreed data volume and devices.',
       businessOutput: 'High-Clarity Executive Cockpits: Real-time cohort retention heatmaps, division variance waterfalls, sub-category sales, and live order ledgers.',
       sla: '5 Business Days',
-      guarantee: 'Sub-second DirectQuery response on desktop and mobile.'
+      guarantee: 'Dashboard performance is checked against the agreed data volume.'
     },
     {
       id: 'analytics-step-05',
@@ -86,9 +86,9 @@ export default function Analytics() {
       latency: '11ms',
       inputData: 'Live production transaction streams and operational telemetry.',
       kyroProcess: 'Configuring automated webhook alerts on statistical margin/churn anomalies, scheduling daily closing summaries, and establishing executive data governance.',
-      businessOutput: 'Turnkey Executive Command System: 24/7 mobile and desktop telemetry, automated Slack/WhatsApp exception alerts, 100% DAX model ownership, and quarterly strategy reviews.',
+      businessOutput: 'A practical reporting system with scheduled summaries, useful alerts, documentation, and client ownership of the metric model.',
       sla: 'Immediate Launch with Live Telemetry',
-      guarantee: '90-Day Telemetry SLA & Free Metric Re-Calibration.'
+      guarantee: 'Any post-launch support or recalibration is agreed per project.'
     }
   ];
 
@@ -97,13 +97,13 @@ export default function Analytics() {
   const [orderSearchQuery, setOrderSearchQuery] = useState('');
 
   const liveOrders = [
-    { id: 'US-2024-05-31-1234', time: '10:15:23 AM', customer: 'Amazon', segment: 'Corporate', category: 'Technology', sales: '$2,349.00', profit: '$352.35', status: 'Completed', region: 'West' },
-    { id: 'US-2024-05-31-1233', time: '10:12:45 AM', customer: 'Staples', segment: 'Corporate', category: 'Office Supplies', sales: '$1,129.50', profit: '$169.43', status: 'Completed', region: 'East' },
-    { id: 'US-2024-05-31-1232', time: '10:09:31 AM', customer: 'Walmart', segment: 'Consumer', category: 'Furniture', sales: '$929.99', profit: '$139.50', status: 'Processing', region: 'South' },
-    { id: 'US-2024-05-31-1231', time: '10:07:18 AM', customer: 'Best Buy', segment: 'Consumer', category: 'Technology', sales: '$1,499.00', profit: '$224.85', status: 'Completed', region: 'West' },
-    { id: 'US-2024-05-31-1230', time: '10:05:02 AM', customer: 'Target', segment: 'Consumer', category: 'Office Supplies', sales: '$299.99', profit: '$44.50', status: 'Processing', region: 'Central' },
-    { id: 'US-2024-05-31-1229', time: '09:58:14 AM', customer: 'Costco', segment: 'Corporate', category: 'Technology', sales: '$3,840.00', profit: '$576.00', status: 'Completed', region: 'West' },
-    { id: 'US-2024-05-31-1228', time: '09:52:40 AM', customer: 'Home Depot', segment: 'Corporate', category: 'Furniture', sales: '$1,875.50', profit: '$281.33', status: 'Completed', region: 'East' },
+    { id: 'ORD-001', time: '10:15:23 AM', customer: 'Lucknow Fabrics (sample)', segment: 'Retail', category: 'Clothing', sales: '₹2,349', profit: '₹352', status: 'Completed', region: 'Lucknow' },
+    { id: 'ORD-002', time: '10:12:45 AM', customer: 'Hazratganj Clinic (sample)', segment: 'Local', category: 'Services', sales: '₹1,129', profit: '₹169', status: 'Completed', region: 'Lucknow' },
+    { id: 'ORD-003', time: '10:09:31 AM', customer: 'Gomti Coaching (sample)', segment: 'Local', category: 'Education', sales: '₹930', profit: '₹140', status: 'Processing', region: 'Lucknow' },
+    { id: 'ORD-004', time: '10:07:18 AM', customer: 'Aminabad Boutique (sample)', segment: 'Retail', category: 'Clothing', sales: '₹1,499', profit: '₹225', status: 'Completed', region: 'Lucknow' },
+    { id: 'ORD-005', time: '10:05:02 AM', customer: 'Indira Nagar Foods (sample)', segment: 'Local', category: 'Food', sales: '₹300', profit: '₹45', status: 'Processing', region: 'Lucknow' },
+    { id: 'ORD-006', time: '09:58:14 AM', customer: 'Chowk Handloom (sample)', segment: 'Retail', category: 'Clothing', sales: '₹3,840', profit: '₹576', status: 'Completed', region: 'Lucknow' },
+    { id: 'ORD-007', time: '09:52:40 AM', customer: 'Aliganj Pharmacy (sample)', segment: 'Local', category: 'Health', sales: '₹1,876', profit: '₹281', status: 'Completed', region: 'Lucknow' },
   ];
 
   const filteredOrders = liveOrders.filter((order) => {
@@ -158,10 +158,10 @@ export default function Analytics() {
   const metricModes = {
     revenue: {
       label: 'Revenue Run-Rate',
-      badge: 'CAGR: +44.2%',
-      value: '₹4.82 Cr',
+      badge: 'EXAMPLE SIMULATION',
+      value: '₹4.82 L',
       period: 'ARR Projected',
-      change: '+18.4% MoM',
+      change: 'SAMPLE TREND',
       color: 'text-breeze-blue',
       path: 'M0 65 Q 40 50, 80 58 T 160 30 T 240 45 T 320 12',
       fill: 'M0 65 Q 40 50, 80 58 T 160 30 T 240 45 T 320 12 L 320 80 L 0 80 Z',
@@ -180,7 +180,7 @@ export default function Analytics() {
     },
     pipeline: {
       label: 'Pipeline Throughput',
-      badge: 'VELOCITY: 14MS',
+      badge: 'EXAMPLE SIMULATION',
       value: '42.8k',
       period: 'Tx / Second Sustained',
       change: '+142% vs Baseline',
@@ -211,14 +211,14 @@ export default function Analytics() {
       desc: 'Turnkey ELT pipelines extracting raw orders, invoices, ad spend, and CRM logs into one structured warehouse with duplicate and error protection.',
       sourcesUnified: 'Tally, Zoho Books, PostgreSQL, Razorpay, Shopify, Google Ads',
       questionAnswered: 'How do we stop manual Excel exports and mismatched team reports?',
-      tags: ['dbt Core', 'Apache Airflow', 'Kafka', 'Auto-Quarantine']
+      tags: ['SQL cleanup', 'Scheduled refresh', 'Data checks']
     },
     {
       id: '02',
       tag: 'SYSTEM 02',
       icon: 'dashboard_customize',
       title: 'Interactive Power BI & Web Dashboards',
-      desc: 'Executive reporting interfaces displaying daily revenue, regional profits, AOV, and live SLA fulfillment across desktop and mobile.',
+      desc: 'Executive reporting interfaces displaying daily revenue, regional profits, AOV, and agreed operational measures across desktop and mobile.',
       sourcesUnified: 'Power BI Service, DirectQuery SQL, Custom Web Portals',
       questionAnswered: 'What happened in sales, gross profit, and unit margins yesterday or this hour?',
       tags: ['DAX Advanced Models', 'Embedded React Visuals', 'Live Telemetry']
@@ -289,13 +289,11 @@ export default function Analytics() {
   const techStack = [
     'Microsoft Power BI',
     'DAX Advanced Models',
-    'dbt Core',
-    'Snowflake',
-    'ClickHouse',
+    'SQL data cleanup',
     'PostgreSQL',
     'Apache Airflow',
     'Python Pandas / NumPy',
-    'Tableau Server',
+    'Dashboard documentation',
     'React Embedded Visuals'
   ];
 
@@ -314,7 +312,7 @@ export default function Analytics() {
         </div>
         <div className="flex items-center gap-3">
           <span className="font-mono text-[11px] text-emerald-400 font-semibold">
-            TELEMETRY: SYNCHRONIZED • 14MS
+            SAMPLE DEMO • SIMULATED METRICS
           </span>
         </div>
       </div>
@@ -390,18 +388,18 @@ export default function Analytics() {
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-sunset-orange font-normal tracking-tight">
-                +4.8x
+                Clearer
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
-                Decision Velocity
+                Decisions
               </span>
             </div>
             <div className="flex flex-col">
               <span className="font-sans text-2xl sm:text-3xl text-breeze-blue font-normal tracking-tight">
-                99.98%
+                Defined
               </span>
               <span className="font-mono text-[10px] sm:text-xs text-body-mid uppercase mt-1">
-                Schema Parity
+                Metrics
               </span>
             </div>
             <div className="flex flex-col">
@@ -526,7 +524,7 @@ export default function Analytics() {
                     {currentDeliveryNode.stage} — {currentDeliveryNode.title}
                   </span>
                   <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
-                    SLA: {currentDeliveryNode.sla}
+                    TIMELINE: {currentDeliveryNode.sla}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -588,7 +586,7 @@ export default function Analytics() {
               {/* Bottom Guarantee Banner */}
               <div className="p-3 bg-surface-container rounded-xl flex items-center justify-between text-xs font-mono">
                 <span className="text-body-mid">
-                  DELIVERY COMMITMENT: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
+                  DELIVERY NOTE: <strong className="text-ink">{currentDeliveryNode.guarantee}</strong>
                 </span>
                 <Link
                   to="/contact"
@@ -774,8 +772,8 @@ export default function Analytics() {
 
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between gap-1 shadow-sm">
                     <span className="font-mono text-[10px] text-body-mid uppercase font-semibold">Avg Order Value</span>
-                    <span className="font-sans text-2xl font-bold text-sunset-orange">$132.46</span>
-                    <span className="font-mono text-[10px] text-emerald-400 font-semibold">▲ 8.7% Margin Exp</span>
+                    <span className="font-sans text-2xl font-bold text-sunset-orange">₹1,324</span>
+                    <span className="font-mono text-[10px] text-emerald-400 font-semibold">Example average</span>
                     <div className="w-full h-4 mt-2">
                       <svg className="w-full h-full text-sunset-orange" fill="none" viewBox="0 0 100 20">
                         <path d="M0 15 Q 35 12, 70 6 T 100 3" stroke="currentColor" strokeWidth="2"></path>
@@ -785,8 +783,8 @@ export default function Analytics() {
 
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between gap-1 shadow-sm">
                     <span className="font-mono text-[10px] text-body-mid uppercase font-semibold">Gross Profit</span>
-                    <span className="font-sans text-2xl font-bold text-ink">$842.3K</span>
-                    <span className="font-mono text-[10px] text-emerald-400 font-semibold">▲ 14.2% Yield</span>
+                    <span className="font-sans text-2xl font-bold text-ink">₹8.42 L</span>
+                    <span className="font-mono text-[10px] text-emerald-400 font-semibold">Example trend</span>
                     <div className="w-full h-4 mt-2">
                       <svg className="w-full h-full text-purple-400" fill="none" viewBox="0 0 100 20">
                         <path d="M0 16 Q 25 15, 60 9 T 100 2" stroke="currentColor" strokeWidth="2"></path>
@@ -886,7 +884,7 @@ export default function Analytics() {
                       <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
                         <span className="text-[11px] font-mono text-ink font-bold">$0.76M</span>
                         <div className="w-full bg-emerald-500 rounded-t-lg" style={{ height: '52%' }}></div>
-                        <span className="text-[10px] font-mono text-body-mid">Corporate</span>
+                        <span className="text-[10px] font-mono text-body-mid">Local business (sample)</span>
                       </div>
                       <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
                         <span className="text-[11px] font-mono text-ink font-bold">$0.47M</span>
@@ -897,7 +895,7 @@ export default function Analytics() {
 
                     <div className="pt-3 border-t border-hairline/60 text-xs font-mono text-body-mid flex justify-between">
                       <span>Top Account: Staples ($78k)</span>
-                      <span className="text-emerald-400">Amazon ($67k)</span>
+                      <span className="text-emerald-400">Lucknow Fabrics (₹67k)</span>
                     </div>
                   </div>
 
@@ -1136,7 +1134,7 @@ export default function Analytics() {
                       MATHEMATICAL SIGNATURE: STEEP INITIAL DROP (100% TO 66.4%) FOLLOWED BY STABILIZING LONG-TAIL PLATEAU (34.5% AT MO 5).
                     </span>
                     <span className="text-emerald-400 font-semibold">
-                      ACTION: AUTOMATED EMAIL NURTURE AT MONTH 3 RECOVERS +14.8% LTV
+                      EXAMPLE ACTION: FOLLOW UP WITH A CUSTOMER AFTER MONTH 3
                     </span>
                   </div>
                 </div>
@@ -1237,7 +1235,7 @@ export default function Analytics() {
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between">
                     <span className="font-mono text-[10px] text-body-mid uppercase font-semibold">GROSS MARGIN</span>
                     <span className="font-sans text-2xl font-bold text-emerald-400 mt-1">49.8%</span>
-                    <span className="font-mono text-[10px] text-rose-400 mt-1">vs Bgt -4.8pp (Budget: 54.7%)</span>
+                    <span className="font-mono text-[10px] text-rose-400 mt-1">Example variance vs budget</span>
                   </div>
 
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between">
@@ -1249,7 +1247,7 @@ export default function Analytics() {
                   <div className="p-4 rounded-2xl bg-surface-container-lowest border border-hairline flex flex-col justify-between">
                     <span className="font-mono text-[10px] text-body-mid uppercase font-semibold">ACTIVE CUSTOMERS</span>
                     <span className="font-sans text-2xl font-bold text-ink mt-1">1.3M</span>
-                    <span className="font-mono text-[10px] text-rose-400 mt-1">Target: 1.5M (-8.0%)</span>
+                    <span className="font-mono text-[10px] text-rose-400 mt-1">Example target variance</span>
                   </div>
                 </div>
 
@@ -1334,7 +1332,7 @@ export default function Analytics() {
                       <div>
                         <div className="flex justify-between mb-1.5">
                           <span className="text-ink font-semibold">APAC (Asia-Pacific)</span>
-                          <span className="text-rose-400 font-bold">-$583.3M (-21.9%)</span>
+                          <span className="text-rose-400 font-bold">₹5.83 L example</span>
                         </div>
                         <div className="w-full h-2.5 rounded-full bg-surface-container overflow-hidden">
                           <div className="h-full bg-rose-500 rounded-full" style={{ width: '30%' }}></div>
@@ -1677,7 +1675,7 @@ export default function Analytics() {
                   </span>
                 </div>
                 <span className="font-mono text-[11px] text-body-mid">
-                  SYNCED: 14MS AGO
+                  SAMPLE TIMESTAMP
                 </span>
               </div>
 
@@ -1867,7 +1865,7 @@ export default function Analytics() {
                 Tested Across Institutional Data Warehouses
               </h2>
               <p className="text-xs sm:text-sm text-body-mid leading-relaxed mb-6">
-                We engineer pipelines natively into your existing storage layers. Zero proprietary lock-in. Full ownership of your DAX semantic models, dbt repositories, and SQL transformations.
+                We work with the data sources you already use and document the resulting calculations and dashboard setup for handover.
               </p>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech, idx) => (
@@ -1886,7 +1884,7 @@ export default function Analytics() {
                 AUDIT GUARANTEE
               </span>
               <p className="text-xs text-ink leading-relaxed">
-                We conduct an initial 3-day data silo reconnaissance audit. If we cannot identify at least ₹20L in recoverable margin leak or reporting latency, our audit is completely free.
+                We start with a scoped data review. The output is a written summary of reporting gaps, data quality issues, and sensible next steps before any larger build.
               </p>
               <Link
                 to="/contact"

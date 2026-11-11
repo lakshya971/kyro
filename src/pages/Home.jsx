@@ -35,7 +35,7 @@ export default function Home() {
       title: 'Enterprise Warehouse Sink',
       desc: 'ACID-compliant relational storage linked directly to analytical cubes and real-time Power BI telemetry.',
       latency: '8.2ms',
-      type: 'PostgreSQL & ClickHouse'
+      type: 'PostgreSQL or your existing database'
     }
   };
 
@@ -43,9 +43,9 @@ export default function Home() {
   const [terminalInput, setTerminalInput] = useState('');
   const [terminalLogs, setTerminalLogs] = useState([
     { type: 'cmd', text: 'kyro-system --verify-architecture' },
-    { type: 'pass', text: 'Latency budget verification: PASS (14.2ms)' },
-    { type: 'ready', text: 'Multi-agent orchestration handshake: READY' },
-    { type: 'metric', text: 'Commercial leverage delta: +420% calculated' },
+    { type: 'info', text: 'Founder-led build session: READY' },
+    { type: 'ready', text: 'Project scope checklist: READY' },
+    { type: 'metric', text: 'Client-owned code and documentation: STANDARD' },
   ]);
 
   const handleTerminalSubmit = (e) => {
@@ -63,17 +63,17 @@ export default function Home() {
     } else if (cmd === 'status' || cmd === 'verify') {
       newLogs.push({
         type: 'pass',
-        text: 'ALL KYRO NODES ONLINE (99.98% UPTIME). 0 DEADLOCKS DETECTED.'
+        text: 'KYRO IS READY TO REVIEW YOUR PROJECT. NO UNSUPPORTED PERFORMANCE PROMISES.'
       });
     } else if (cmd === 'services') {
       newLogs.push({
         type: 'info',
-        text: '8 DISCIPLINES: Web Architecture, Custom Software, AI Automation, Agentic AI, RAG Systems, n8n Workflows, Data Analytics, BI Consultation'
+        text: '5 STARTING POINTS: Websites, Software, Dashboards, Automation, Consultation'
       });
     } else if (cmd === 'pricing') {
       newLogs.push({
         type: 'info',
-        text: 'PACKAGES FROM ₹18,000 (Web Architecture) TO ₹65,000 (Full MVP). FLAT FEES.'
+        text: 'STARTING AT ₹18,000. FINAL PRICE DEPENDS ON YOUR WRITTEN SCOPE.'
       });
     } else if (cmd === 'contact') {
       newLogs.push({
@@ -102,10 +102,10 @@ export default function Home() {
       icon: 'web',
       accentColor: 'text-sunset-orange',
       title: 'WEBSITE DEVELOPMENT',
-      desc: 'High-throughput, semantic web architectures designed for sub-second response times, SEO rankings, and high-converting digital storefronts.',
+      desc: 'Clear, responsive websites built around your offer, customers, and lead flow—not a template with unnecessary extras.',
       bestFor: 'D2C brands, B2B service firms & high-growth startups losing leads on slow template sites.',
-      deliverables: 'Custom React/Edge Frontend • Sub-second Mobile Speed • Automated Lead Capture Webhooks',
-      outcome: 'Core Web Vitals 99+ • Sub-200ms TTFB Global Cache',
+      deliverables: 'Custom responsive pages • SEO basics • Contact and lead capture setup',
+      outcome: 'A site your customers can understand and use on mobile',
       link: '/development'
     },
     {
@@ -114,10 +114,10 @@ export default function Home() {
       icon: 'terminal',
       accentColor: 'text-breeze-blue',
       title: 'CUSTOM SOFTWARE SOLUTIONS',
-      desc: 'Cloud-native full-stack applications, multi-entity ERPs, custom CRMs, and bespoke customer portals engineered without per-seat SaaS lock-in.',
+      desc: 'Small business tools, portals, and MVPs that fit the way your team actually works.',
       bestFor: 'Manufacturing, distribution & commercial teams outgrowing disconnected Excel & rigid SaaS tools.',
-      deliverables: 'Full ERP/CRM Portals • PostgreSQL Ledger • Role-Based Access & Payment Pipelines',
-      outcome: 'Zero Vendor Lock-in • High Concurrent Query Pipelines',
+      deliverables: 'Scoped features • Login and roles where needed • Handover documentation',
+      outcome: 'Less spreadsheet and copy-paste work',
       link: '/development'
     },
     {
@@ -126,10 +126,10 @@ export default function Home() {
       icon: 'monitoring',
       accentColor: 'text-body-mid',
       title: 'DATA ANALYTICS & BI',
-      desc: 'Unifying fragmented billing, sales, marketing, and inventory silos into Power BI & executive dashboards with live profit visibility.',
+      desc: 'Simple dashboards that bring the numbers you already have into one place.',
       bestFor: 'Founders, CFOs & ops directors tired of waiting days for conflicting manual spreadsheets.',
-      deliverables: 'Automated ELT Pipelines • Unified Single-Truth DAX Layer • Executive & Cohort Cockpits',
-      outcome: 'Actionable Real-Time Signal • Zero Data Silos',
+      deliverables: 'Data cleanup • Clear metric definitions • Power BI or custom dashboard',
+      outcome: 'Fewer conflicting reports and clearer decisions',
       link: '/analytics'
     },
     {
@@ -140,8 +140,8 @@ export default function Home() {
       title: 'BUSINESS CONSULTATION',
       desc: 'Strategic technology diagnostics that locate operational bottlenecks, plug margin leaks, and map high-ROI engineering roadmaps.',
       bestFor: 'Leadership teams planning software modernization, cost reduction, or AI adoption before spending capital.',
-      deliverables: '48-Hour Friction Diagnostic • Fixed-Scope RFC Blueprint • Capital ROI Model',
-      outcome: 'Quantified Capital Allocation • Elimination of Waste',
+      deliverables: 'Discovery call • Written recommendations • Practical next-step plan',
+      outcome: 'A clearer decision before you spend on software',
       link: '/contact'
     },
     {
@@ -150,10 +150,10 @@ export default function Home() {
       icon: 'auto_mode',
       accentColor: 'text-breeze-blue',
       title: 'AI AUTOMATION',
-      desc: 'System-wide routine eradication replacing manual email triage, invoice entry, and copy-paste tasks with deterministic AI pipelines.',
+      desc: 'Automations for repetitive admin work such as lead sorting, notifications, and document handling.',
       bestFor: 'Operations, finance & back-office teams burning 15+ hours weekly on repetitive data handling.',
       deliverables: 'Automated Invoice & Document OCR • Lead Qualification Routing • Instant Slack/WhatsApp Dispatch',
-      outcome: '85% Manual Process Deprecation • Zero Latency Routing',
+      outcome: 'Fewer repetitive steps, with a human fallback for exceptions',
       link: '/ai-workflows'
     },
     {
@@ -163,9 +163,9 @@ export default function Home() {
       accentColor: 'text-dusk-purple',
       title: 'AGENTIC AI & AUTONOMOUS AGENTS',
       desc: 'Multi-agent workflows with goal seeking, runtime error recovery, and tool execution that autonomously resolve support & ops tasks.',
-      bestFor: 'Enterprises needing 24/7 autonomous coordination across CRM, support desks, and backend databases.',
+      bestFor: 'Teams exploring carefully scoped AI assistance across support or operations.',
       deliverables: 'Multi-Agent Supervisor Swarm • Tool-Calling Guardrails • Human-in-the-Loop Escalation',
-      outcome: 'Unsupervised Multi-Step Goal Execution • Self-Correction',
+      outcome: 'Useful automation with review points and clear limits',
       link: '/ai-workflows'
     },
     {
@@ -175,9 +175,9 @@ export default function Home() {
       accentColor: 'text-sunset-orange',
       title: 'RAG-BASED AI ARCHITECTURES',
       desc: 'Private semantic search and conversational assistants grounded strictly on your company SOPs, PDFs, pricing rules, and policies.',
-      bestFor: 'Support, legal, onboarding & sales teams needing instant cited answers without AI hallucinations.',
+      bestFor: 'Teams that want faster access to their own documents and policies.',
       deliverables: 'Private pgvector/Qdrant Index • Hybrid BM25 Re-Ranking • Verified Source Citations',
-      outcome: '100% Deterministic Source Citation • Real-Time Re-Indexing',
+      outcome: 'Searchable internal knowledge with source links where available',
       link: '/ai-workflows'
     },
     {
@@ -186,7 +186,7 @@ export default function Home() {
       icon: 'hub',
       accentColor: 'text-breeze-blue',
       title: 'N8N WORKFLOW PIPELINES',
-      desc: 'Self-hosted high-security automation pipelines connecting CRMs, databases, WhatsApp, payment gateways, and Google Workspace with ₹0 Zapier tax.',
+      desc: 'Automation pipelines connecting the tools your business already uses, with hosting and third-party costs discussed upfront.',
       bestFor: 'Privacy-conscious companies scaling multi-app sync without paying steep recurring SaaS workflow fees.',
       deliverables: 'Self-Hosted Cloud n8n Cluster • Air-Gapped Credentials • Dead-Letter Error Recovery',
       outcome: 'Air-Gapped Data Privacy • Multi-App Sync Under 1.2s',
@@ -201,15 +201,15 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-sunset-orange animate-pulse"></span>
           <span className="font-mono text-[11px] sm:text-xs text-body-mid uppercase tracking-wider">
-            KYRO CORE SYSTEM OPERATIONAL • TELEMETRY: NOMINAL
+            KYRO DEMO INTERFACE • SIMULATED STATUS
           </span>
         </div>
         <div className="flex items-center gap-3">
           <span className="hidden sm:inline-block font-mono text-[11px] text-body-mid">
-            REGION: AP-SOUTH-1
+            REGION: SIMULATED
           </span>
           <span className="font-mono text-[11px] text-sunset-orange font-bold">
-            LATENCY: 14MS
+            LATENCY: EXAMPLE ONLY
           </span>
         </div>
       </div>
@@ -224,18 +224,18 @@ export default function Home() {
               <div className="flex items-center gap-2 mb-4">
                 <span className="inline-block w-2 h-2 rounded-full bg-breeze-blue"></span>
                 <span className="font-mono text-xs text-breeze-blue uppercase tracking-widest font-semibold">
-                  FRONTIER DIGITAL SYSTEMS & LAB
+                  FOUNDER-LED DIGITAL BUILD STUDIO
                 </span>
               </div>
 
               {/* Monolith Headline */}
               <h1 className="font-sans text-3xl sm:text-5xl text-ink font-normal tracking-tight leading-[1.1] mb-5">
-                Engineered digital systems that drive measurable commercial advantage.
+                Practical digital tools for businesses that want to work better.
               </h1>
 
               {/* Subtext Statement */}
               <p className="font-sans text-base sm:text-lg text-body-text mb-8 leading-relaxed">
-                We do not build hollow websites or disconnected dashboards. At <strong className="text-ink font-semibold">KYRO</strong>, we design mission-critical custom software, autonomous AI workflows, and executive analytics engineered for revenue, margin clarity, and operational speed.
+                <strong className="text-ink font-semibold">KYRO</strong> is a founder-led, student-built studio. I build websites, small business software, dashboards, and carefully scoped automations with clear communication and direct ownership.
               </p>
 
               {/* Interactive Precision Pills */}
@@ -256,7 +256,7 @@ export default function Home() {
                   to="/pricing"
                   className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-surface-container-lowest border border-hairline text-body-mid hover:text-ink font-mono text-xs sm:text-sm transition-all"
                 >
-                  View Pricing & SLAs
+                  View Pricing
                 </Link>
               </div>
             </div>
@@ -289,44 +289,44 @@ export default function Home() {
               </span>
             </div>
             <span className="font-mono text-xs text-breeze-blue uppercase mb-2">
-              Beyond Code & Tools: Absolute Technological Leverage
+              Honest delivery, built around your business
             </span>
             <p className="font-sans text-sm sm:text-base text-body-text leading-relaxed max-w-3xl">
-              Ordinary agencies deliver template repositories and raw chart files. We engineer end-to-end operational leverage—identifying commercial bottlenecks, architecting automated business logic, eliminating manual data entry, and training your team on measurable expansion.
+              You get direct access to the person doing the work, a written scope before development, regular previews, and your project files at handover. No invented benchmarks, enterprise theatre, or promises that depend on someone else’s infrastructure.
             </p>
 
             {/* Micro Diagnostic Telemetry Bar */}
             <div className="mt-6 pt-4 border-t border-hairline/80 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-surface-container-low p-4 rounded-xl">
               <div>
                 <span className="block font-mono text-[10px] text-body-mid uppercase">
-                  BOTTLENECK VELOCITY
+                  PROJECT APPROACH
                 </span>
                 <span className="font-mono text-sm sm:text-base text-sunset-orange font-bold">
-                  +340% IDENTIFIED
+                  FOUNDER-LED
                 </span>
               </div>
               <div>
                 <span className="block font-mono text-[10px] text-body-mid uppercase">
-                  DEPLOYMENT FIDELITY
+                  COMMUNICATION
                 </span>
                 <span className="font-mono text-sm sm:text-base text-ink font-bold">
-                  ZERO DRIFT
+                  DIRECT
                 </span>
               </div>
               <div>
                 <span className="block font-mono text-[10px] text-body-mid uppercase">
-                  RECURRING TECH DEBT
+                  PROJECT FILES
                 </span>
                 <span className="font-mono text-sm sm:text-base text-breeze-blue font-bold">
-                  0% ACCUMULATED
+                  CLIENT-OWNED
                 </span>
               </div>
               <div>
                 <span className="block font-mono text-[10px] text-body-mid uppercase">
-                  IP GOVERNANCE
+                  DELIVERY STYLE
                 </span>
                 <span className="font-mono text-sm sm:text-base text-ink font-bold">
-                  100% CLIENT OWNED
+                  CLEAR SCOPE
                 </span>
               </div>
             </div>
@@ -340,11 +340,11 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-breeze-blue text-[20px]">hub</span>
                 <span className="font-mono text-xs text-body-mid uppercase tracking-widest font-semibold">
-                  KYRO LAB NODE TOPOLOGY
+                  HOW I BUILD
                 </span>
               </div>
               <span className="font-mono text-xs text-sunset-orange">
-                CLICK NODES TO INSPECT TELEMETRY
+                CLICK NODES TO SEE THE KIND OF WORK I CAN DO
               </span>
             </div>
 
@@ -428,44 +428,44 @@ export default function Home() {
               VALIDATED ENGINE BENCHMARKS
             </span>
             <span className="font-mono text-[11px] text-body-mid">
-              CONTINUOUS HARNESS SPEC
+              WHAT YOU CAN EXPECT
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Metric 1 */}
             <div className="flex flex-col p-6 rounded-xl bg-surface-container-low border border-hairline/60 shadow-sm">
               <span className="font-sans text-4xl sm:text-5xl text-ink font-normal tracking-tighter">
-                99.98%
+                01
               </span>
               <span className="font-mono text-xs text-body-mid uppercase mt-2 font-medium">
-                System Uptime • Continuous Resilience
+                Direct Communication
               </span>
               <span className="text-xs text-body-text mt-2 leading-relaxed">
-                Multi-cloud fallback rings with zero degraded failover overhead across distributed edge regions.
+                You speak directly with the founder from first conversation to handover.
               </span>
             </div>
             {/* Metric 2 */}
             <div className="flex flex-col p-6 rounded-xl bg-surface-container-low border border-hairline/60 shadow-sm">
               <span className="font-sans text-4xl sm:text-5xl text-breeze-blue font-normal tracking-tighter">
-                14.2x
+                02
               </span>
               <span className="font-mono text-xs text-body-mid uppercase mt-2 font-medium">
-                Average Operational Velocity
+                Clear Milestones
               </span>
               <span className="text-xs text-body-text mt-2 leading-relaxed">
-                Direct acceleration measured from automated business logic, autonomous agent triage, and zero-redundancy workflows.
+                We agree on the scope, show working progress, and flag changes before they become surprises.
               </span>
             </div>
             {/* Metric 3 */}
             <div className="flex flex-col p-6 rounded-xl bg-surface-container-low border border-hairline/60 shadow-sm">
               <span className="font-sans text-4xl sm:text-5xl text-ink font-normal tracking-tighter">
-                0.00%
+                03
               </span>
               <span className="font-mono text-xs text-body-mid uppercase mt-2 font-medium">
-                Bloatware Tolerance
+                Practical Handover
               </span>
               <span className="text-xs text-body-text mt-2 leading-relaxed">
-                Zero unneeded third-party runtimes or bloated scripts. Every line of code serves direct transaction throughput.
+                You receive the relevant code, setup notes, and a walkthrough for the delivered work.
               </span>
             </div>
           </div>
@@ -484,13 +484,13 @@ export default function Home() {
               Engineered Disciplines.
             </h2>
             <p className="font-sans text-sm sm:text-base text-body-mid mt-2 max-w-xl">
-              Eight strict operational divisions calibrated for technical superiority, commercial velocity, and enterprise reliability.
+              Start with the problem, not a long list of jargon. Services can be combined when your project needs it.
             </p>
           </div>
 
           {/* 8 Disciplines Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((srv) => (
+            {services.slice(0, 5).map((srv) => (
               <article
                 key={srv.id}
                 className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-canvas-card border border-hairline shadow-md hover:border-pill-border transition-all group"
@@ -602,20 +602,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Founder Section */}
+        <section className="flex flex-col py-10 sm:py-16">
+          <div className="p-6 sm:p-8 rounded-2xl bg-surface-container-low border border-hairline shadow-md">
+            <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
+              <div className="w-16 h-16 rounded-full bg-breeze-blue/20 border border-breeze-blue/40 flex items-center justify-center shrink-0">
+                <span className="font-sans text-2xl text-breeze-blue font-semibold">L</span>
+              </div>
+              <div>
+                <span className="font-mono text-xs text-sunset-orange uppercase tracking-widest font-semibold">
+                  ABOUT THE FOUNDER
+                </span>
+                <h2 className="font-sans text-2xl text-ink font-medium mt-1">
+                  Lakshya — founder of KYRO
+                </h2>
+                <p className="text-sm text-body-text leading-relaxed mt-2 max-w-2xl">
+                  I am a B.Tech CSE (Data Science) student based in Lucknow. KYRO is a small, direct studio: I take on focused website, software, dashboard, and automation work and show progress as I build.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA Unit */}
         <section className="flex flex-col py-10 sm:py-16" id="contact-spec">
           <div className="p-8 sm:p-12 rounded-3xl bg-canvas-card border border-hairline shadow-2xl flex flex-col text-left relative overflow-hidden">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2.5 h-2.5 rounded-full bg-sunset-orange animate-pulse"></span>
               <span className="font-mono text-xs text-sunset-orange uppercase tracking-wider font-semibold">
-                ENGAGE KYRO LABS
+                TALK TO THE FOUNDER
               </span>
             </div>
             <h2 className="font-sans text-2xl sm:text-4xl text-ink font-normal tracking-tight mb-4 max-w-xl">
-              Ready to deploy serious technological leverage?
+              Have a website or workflow problem?
             </h2>
             <p className="font-sans text-sm sm:text-base text-body-text mb-8 leading-relaxed max-w-2xl">
-              We schedule deep-dive architectural consultations to analyze your current code baseline, manual friction points, and immediate ROI automation vectors. Direct scoping with senior systems architects.
+              Tell me what is difficult today, what you have already tried, and what a useful result looks like. I will suggest a sensible first step and a realistic scope.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -623,7 +645,7 @@ export default function Home() {
                 to="/contact"
                 className="flex items-center justify-center h-12 px-8 rounded-full bg-primary text-on-primary font-mono text-xs sm:text-sm font-semibold shadow-lg transition-all hover:bg-primary-fixed active:scale-95"
               >
-                Initiate Technical Audit
+                Book a free 15-minute call
               </Link>
               <div className="flex items-center gap-2 text-xs font-mono text-body-mid px-2">
                 <span className="material-symbols-outlined text-body-mid text-[16px]">lock</span>
@@ -633,8 +655,8 @@ export default function Home() {
 
             {/* Attribution */}
             <div className="mt-12 pt-6 border-t border-hairline/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-mono text-body-mid">
-              <span>KYRO ENGINEERING RESEARCH CORP • SPEC v4.2.0</span>
-              <span>ZERO BLOAT • DETERMINISTIC HIGH-THROUGHPUT ENGINE</span>
+              <span>KYRO • FOUNDER-LED BY LAKSHYA</span>
+              <span>LUCKNOW • DIRECT COMMUNICATION</span>
             </div>
           </div>
         </section>
