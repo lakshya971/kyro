@@ -10,7 +10,7 @@ export default function Navbar() {
     { name: 'Dev', path: '/development', icon: 'terminal' },
     { name: 'AI Systems', path: '/ai-workflows', icon: 'memory' },
     { name: 'Analytics', path: '/analytics', icon: 'monitoring' },
-    { name: 'Investment', path: '/pricing', icon: 'layers' },
+    
   ];
 
   return (
