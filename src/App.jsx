@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Development from './pages/Development';
 import AiWorkflows from './pages/AiWorkflows';
 import Analytics from './pages/Analytics';
-import Pricing from './pages/Pricing';
+
 import Contact from './pages/Contact';
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/development" element={<Development />} />
             <Route path="/ai-workflows" element={<AiWorkflows />} />
             <Route path="/analytics" element={<Analytics />} />
-            <Route path="/pricing" element={<Pricing />} />
+           
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
